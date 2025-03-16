@@ -46,8 +46,7 @@ The proposed **NCE-based models** outperformed **other baselines** through datas
 **Gaps:** 
 The training process took a very long due to a very large datasets of frameworks. This result in the coverage of TTPs which could provide a limit size in the prediction. 
 
-**Relevance to the Project:**  
-- This work demonstrates that **NCE-based learning paradigms** can improve **cybersecurity NLP models**, which aligns with the **fine-tuned classification approach**.
+**Relevance to the Project:** This work demonstrates that **NCE-based learning paradigms** can improve **cybersecurity NLP models**, which aligns with the **fine-tuned classification approach**.
 
 **2. A Pretrained Language Model for Cyber Threat Intelligence**
 
@@ -83,8 +82,7 @@ The proposed **CTI-BERT model** outperformed existing **general-domain** and **c
 **Gaps:** 
 The model will works only with the English language which in real-world of cybersecurity many news are distributed in many language. In addition, the model was trained with very little datasets which could cause some problem to unknown cybersecurity news or intelligence.
 
-**Relevance to the Project:**  
-- Since the chatbot needs to **classify cybersecurity news into MITRE ATT&CK techniques**, CTI-BERT’s **domain-specific pretraining** supports **higher accuracy and relevance in classification tasks**.
+**Relevance to the Project:** Since the chatbot needs to **classify cybersecurity news into MITRE ATT&CK techniques**, CTI-BERT’s **domain-specific pretraining** supports **higher accuracy and relevance in classification tasks**.
 
 **3. AnnoCTR: A Dataset for Detecting and Linking Entities, Tactics, and Techniques in Cyber Threat Reports**
 
@@ -125,8 +123,7 @@ AnnoCTR provides a **strong foundation** for **automated cyber threat intelligen
 **Gaps:** 
 Existing approaches struggle with disambiguating ATT&CK techniques due to complex terminology and limited data. 
 
-**Relevance to the Project:**  
-- This dataset supports **more accurate ATT&CK technique classification**, which enhances the **training data for chatbot-based threat intelligence automation**.
+**Relevance to the Project:** This dataset supports **more accurate ATT&CK technique classification**, which enhances the **training data for chatbot-based threat intelligence automation**.
 
 **4. Introducing a New Dataset for Event Detection in Cybersecurity Texts**
 
@@ -151,8 +148,7 @@ CySecED is a newly introduced dataset for cybersecurity event detection (ED), ad
 **Gaps:** 
 Existing ED datasets focus on event trigger detection but do not address cyber threat intelligence (CTI) retrieval. Traditional methods struggle with capturing nuanced attack relationships, and graph-based ED models remain underexplored in CTI
 
-**Relevance to the Project:**  
-- Since the chatbot will **classify threats based on cybersecurity news**, insights from **document-aware architectures** will improve the **Retrieval-Augmented Generation (RAG) approach**.
+**Relevance to the Project:** Since the chatbot will **classify threats based on cybersecurity news**, insights from **document-aware architectures** will improve the **Retrieval-Augmented Generation (RAG) approach**.
 
 **5. Full-Stack Information Extraction System for Cybersecurity Intelligence**
 
@@ -178,8 +174,7 @@ The proposed system effectively automates the extraction and structuring of valu
 **Gaps:** 
 It does not integrate with structured frameworks such as MITRE ATT&CK, nor does it classify extracted entities by specific attack techniques, which limits its ability to provide actionable insights and hinders real-time threat mitigation.
 
-**Relevance to the Project:**  
-- the chatbot will **extract threat insights from cybersecurity news**, and this system’s **entity recognition techniques** align with the **automated threat classification goals**.
+**Relevance to the Project:** The chatbot will **extract threat insights from cybersecurity news**, and this system’s **entity recognition techniques** align with the **automated threat classification goals**.
 
 **6. Bootstrapping a Natural Language Interface to a Cybersecurity Event Collection System**
 
@@ -206,8 +201,7 @@ The hybrid translation approach effectively enables non-expert users to query co
 **Gaps:** 
 The system does not automate the classification of cybersecurity threats into structured frameworks like MITRE ATT&CK, and focuses primarily on query-based interactions rather than real-time threat classification.
 
-**Relevance to the Project:**  
-- Since the chatbot will allow **security analysts to query threats using natural language**, this work informs **conversational interface design**.
+**Relevance to the Project:** Since the chatbot will allow **security analysts to query threats using natural language**, this work informs **conversational interface design**.
 
 
 ## Methodology
