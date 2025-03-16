@@ -40,6 +40,7 @@ Cyber threat intelligence (CTI) and cybersecurity NLP research have advanced sig
   - **Experimental Setup**: Based on a language model named **SecBERT**, **hyperparameters were tuned** using **grid search** and compared across **all baselines within auxiliary tasks**.  
 
 **Conclusion:**
+
 The proposed **NCE-based models** outperformed **other baselines** through dataset crafting, comparison, and hyperparameter tuning. This new learning paradigm integrates **inductive bias into classification tasks**, significantly improving **TTP classification**.
 
 **Relevance to Our Project:**  
@@ -73,6 +74,7 @@ The proposed **NCE-based models** outperformed **other baselines** through datas
     - **Token Type Classification**: Categorizes tokens into **entity, action, and modifier**.  
 
 **Conclusion:**
+
 The proposed **CTI-BERT model** outperformed existing **general-domain** and **cybersecurity-domain** models.
 
 **Relevance to Our Project:**  
@@ -106,6 +108,7 @@ The proposed **CTI-BERT model** outperformed existing **general-domain** and **c
 - **Performance Metrics**: Measured using **precision, recall, and F1-score**.
 
 **Conclusion:**
+
 **AnnoCTR is the first openly available cybersecurity dataset** with **fine-grained annotations** for **MITRE ATT&CK tactics and techniques**. Evaluation results show that:  
 - **RoBERTa performs best** for **Named Entity Recognition (NER)**.  
 - **Fine-tuned GENRE** is most effective for **Entity Linking**.  
@@ -133,6 +136,7 @@ AnnoCTR provides a **strong foundation** for **automated cyber threat intelligen
 - **Model Evaluation:** Tested sentence-level models (CNN, DMCNN, MOGANED, BERT-ED) and document-level models (HBTNGMA, DEEB-RNN) using word2vec and BERT embeddings.
 
 **Conclusion:**
+
 CySecED is a newly introduced dataset for cybersecurity event detection (ED), addressing the limitations of CASIE by expanding event types from 5 to 30 and incorporating document-level context. Evaluation of state-of-the-art models reveals that current ED systems struggle with CySecED, with the best model achieving only 68.4% F1, far below human performance (81.0% F1). The results highlight the need for document-aware architectures and domain-adapted embeddings to improve cybersecurity ED. Future work includes event argument annotation and the exploration of advanced deep learning models. CySecED will be publicly released to support further research in NLP for cybersecurity.
 
 **Relevance to Our Project:**  
@@ -156,6 +160,7 @@ CySecED is a newly introduced dataset for cybersecurity event detection (ED), ad
 - **Knowledge Graph Construction:** Extracted data is used to build a dynamic knowledge graph that maps the relationships between entities and events in cybersecurity, offering an insightful view of ongoing or past incidents.
 
 **Conclusion:**
+
 The proposed system effectively automates the extraction and structuring of valuable cybersecurity intelligence from unstructured data, enhancing scalability and decision-making in cybersecurity operations, with future improvements focused on accuracy and adaptation to emerging threats.
 
 **Relevance to Our Project:**  
@@ -180,6 +185,7 @@ The proposed system effectively automates the extraction and structuring of valu
 - **User Interface:** Implements an intuitive NLI for users to input queries and receive results.
 
 **Conclusion:**
+
 The hybrid translation approach effectively enables non-expert users to query complex cybersecurity event systems using natural language, enhancing accessibility and adaptability. Future work could focus on expanding natural language capabilities, improving the system’s handling of ambiguous queries, and integrating with a wider range of cybersecurity tools and data sources.
 
 **Relevance to Our Project:**  
