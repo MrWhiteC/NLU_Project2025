@@ -43,6 +43,9 @@ Cyber threat intelligence (CTI) and cybersecurity NLP research have advanced sig
 
 The proposed **NCE-based models** outperformed **other baselines** through dataset crafting, comparison, and hyperparameter tuning. This new learning paradigm integrates **inductive bias into classification tasks**, significantly improving **TTP classification**.
 
+**Gaps:** 
+The training process took a very long due to a very large datasets of frameworks. This result in the coverage of TTPs which could provide a limit size in the prediction. 
+
 **Relevance to Our Project:**  
 - This work demonstrates that **NCE-based learning paradigms** can improve **cybersecurity NLP models**, which aligns with our **fine-tuned classification approach**.
 
@@ -76,6 +79,9 @@ The proposed **NCE-based models** outperformed **other baselines** through datas
 **Conclusion:**
 
 The proposed **CTI-BERT model** outperformed existing **general-domain** and **cybersecurity-domain** models.
+
+**Gaps:** 
+The model will works only with the English language which in real-world of cybersecurity many news are distributed in many language. In addition, the model was trained with very little datasets which could cause some problem to unknown cybersecurity news or intelligence.
 
 **Relevance to Our Project:**  
 - Since our chatbot needs to **classify cybersecurity news into MITRE ATT&CK techniques**, CTI-BERT’s **domain-specific pretraining** supports **higher accuracy and relevance in classification tasks**.
@@ -116,6 +122,9 @@ The proposed **CTI-BERT model** outperformed existing **general-domain** and **c
 
 AnnoCTR provides a **strong foundation** for **automated cyber threat intelligence processing**.
 
+**Gaps:** 
+Existing approaches struggle with disambiguating ATT&CK techniques due to complex terminology and limited data. 
+
 **Relevance to Our Project:**  
 - This dataset supports **more accurate ATT&CK technique classification**, which enhances our **training data for chatbot-based threat intelligence automation**.
 
@@ -138,6 +147,9 @@ AnnoCTR provides a **strong foundation** for **automated cyber threat intelligen
 **Conclusion:**
 
 CySecED is a newly introduced dataset for cybersecurity event detection (ED), addressing the limitations of CASIE by expanding event types from 5 to 30 and incorporating document-level context. Evaluation of state-of-the-art models reveals that current ED systems struggle with CySecED, with the best model achieving only 68.4% F1, far below human performance (81.0% F1). The results highlight the need for document-aware architectures and domain-adapted embeddings to improve cybersecurity ED. Future work includes event argument annotation and the exploration of advanced deep learning models. CySecED will be publicly released to support further research in NLP for cybersecurity.
+
+**Gaps:** 
+Existing ED datasets focus on event trigger detection but do not address cyber threat intelligence (CTI) retrieval. Traditional methods struggle with capturing nuanced attack relationships, and graph-based ED models remain underexplored in CTI
 
 **Relevance to Our Project:**  
 - Since our chatbot will **classify threats based on cybersecurity news**, insights from **document-aware architectures** will improve our **Retrieval-Augmented Generation (RAG) approach**.
@@ -163,6 +175,9 @@ CySecED is a newly introduced dataset for cybersecurity event detection (ED), ad
 
 The proposed system effectively automates the extraction and structuring of valuable cybersecurity intelligence from unstructured data, enhancing scalability and decision-making in cybersecurity operations, with future improvements focused on accuracy and adaptation to emerging threats.
 
+**Gaps:** 
+It does not integrate with structured frameworks such as MITRE ATT&CK, nor does it classify extracted entities by specific attack techniques, which limits its ability to provide actionable insights and hinders real-time threat mitigation.
+
 **Relevance to Our Project:**  
 - Our chatbot will **extract threat insights from cybersecurity news**, and this system’s **entity recognition techniques** align with our **automated threat classification goals**.
 
@@ -187,6 +202,9 @@ The proposed system effectively automates the extraction and structuring of valu
 **Conclusion:**
 
 The hybrid translation approach effectively enables non-expert users to query complex cybersecurity event systems using natural language, enhancing accessibility and adaptability. Future work could focus on expanding natural language capabilities, improving the system’s handling of ambiguous queries, and integrating with a wider range of cybersecurity tools and data sources.
+
+**Gaps:** 
+The system does not automate the classification of cybersecurity threats into structured frameworks like MITRE ATT&CK, and focuses primarily on query-based interactions rather than real-time threat classification.
 
 **Relevance to Our Project:**  
 - Since our chatbot will allow **security analysts to query threats using natural language**, this work informs our **conversational interface design**.
