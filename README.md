@@ -19,6 +19,7 @@ This project aims to develop an **AI-powered chatbot** that leverages **Natural 
 Cyber threat intelligence (CTI) and cybersecurity NLP research have advanced significantly, with various studies addressing different aspects of cyber threat detection, classification, and information extraction. Below are key related works that inform our approach to building an **AI-powered chatbot for MITRE ATT&CK threat classification and organizational impact analysis**.
 
 **1. Noise Contrastive Estimation-based Matching Framework for Low-Resource Security Attack Pattern Recognition**
+
 **Problem Statement:**  
 - Classifying long-tailed, multi-label Tactics, Techniques, and Procedures (TTPs) is challenging due to missing labels and the complexity of attack patterns.  
 
@@ -32,6 +33,7 @@ Cyber threat intelligence (CTI) and cybersecurity NLP research have advanced sig
 - This work demonstrates that **NCE-based learning paradigms** can improve **cybersecurity NLP models**, which aligns with our **fine-tuned classification approach**.
 
 **2. A Pretrained Language Model for Cyber Threat Intelligence**
+
 **Problem Statement:**  
 - General-purpose NLP models struggle to understand cybersecurity-specific language and terminology.  
 
@@ -47,6 +49,7 @@ Cyber threat intelligence (CTI) and cybersecurity NLP research have advanced sig
 - Since our chatbot needs to **classify cybersecurity news into MITRE ATT&CK techniques**, CTI-BERT’s **domain-specific pretraining** supports **higher accuracy and relevance in classification tasks**.
 
 **3. AnnoCTR: A Dataset for Detecting and Linking Entities, Tactics, and Techniques in Cyber Threat Reports**
+
 **Problem Statement:**  
 - Existing cybersecurity datasets lack **fine-grained annotations** for MITRE ATT&CK techniques and do not support entity linking to structured knowledge bases.  
 
@@ -60,6 +63,7 @@ Cyber threat intelligence (CTI) and cybersecurity NLP research have advanced sig
 - This dataset supports **more accurate ATT&CK technique classification**, which enhances our **training data for chatbot-based threat intelligence automation**.
 
 **4. Introducing a New Dataset for Event Detection in Cybersecurity Texts**
+
 **Problem Statement:**  
 - Existing cybersecurity event detection (ED) datasets, such as **CASIE**, have only **5 event types** and lack **document-level context**, making them insufficient for real-world event detection.  
 
@@ -72,6 +76,7 @@ Cyber threat intelligence (CTI) and cybersecurity NLP research have advanced sig
 - Since our chatbot will **classify threats based on cybersecurity news**, insights from **document-aware architectures** will improve our **Retrieval-Augmented Generation (RAG) approach**.
 
 **5. Full-Stack Information Extraction System for Cybersecurity Intelligence**
+
 **Problem Statement:**  
 - Extracting actionable intelligence from large volumes of **unstructured cybersecurity data** is difficult.  
 
@@ -85,6 +90,7 @@ Cyber threat intelligence (CTI) and cybersecurity NLP research have advanced sig
 - Our chatbot will **extract threat insights from cybersecurity news**, and this system’s **entity recognition techniques** align with our **automated threat classification goals**.
 
 **6. Bootstrapping a Natural Language Interface to a Cybersecurity Event Collection System**
+
 **Problem Statement:**  
 - Many cybersecurity tools require **technical expertise**, making them **inaccessible to non-expert users**.  
 
