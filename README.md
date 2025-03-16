@@ -107,6 +107,8 @@ Cyber threat intelligence (CTI) and cybersecurity NLP research have advanced sig
 
 **5. Evaluation:** The system will be evaluated using metrics such as accuracy, precision, recall, and F1-score. Human evaluation by cybersecurity experts will also be conducted to assess practical effectiveness.
 
+![methodology_nlp drawio](https://github.com/user-attachments/assets/a885a9de-b47d-4fe8-9693-7890f04801b5)
+
 
 ## Expected Results
 - **Accurate Threat Classification:** The chatbot will accurately classify cybersecurity news into MITRE ATT&CK techniques.
