@@ -59,12 +59,12 @@ This section presents the preliminary results from experiments evaluating the pe
 
 These models were evaluated using the following classification metrics:
 
-- Training Loss
-- Validation Loss
-- Accuracy
-- Precision
-- Recall
-- F1-Score
+- **Training Loss**
+- **Validation Loss**
+- **Accuracy**
+- **Precision**
+- **Recall**
+- **F1-Score**
 
 ### Model Performance
 
