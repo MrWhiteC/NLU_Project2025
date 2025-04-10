@@ -253,8 +253,6 @@ The system does not automate the classification of cybersecurity threats into st
 
 - **Computational Resources:** Managing the computational resources required for training large transformer models.
 
-- **RAG Integration:** Ensuring seamless integration of RAG for accurate impact assessments.
-
 - **Scalability and Real-Time Performance:** Optimizing the system for real-time threat analysis and scalability.
 
 - **Evaluation and Feedback:** Coordinating comprehensive human evaluation with cybersecurity experts to ensure the system’s practical effectiveness and relevance in real-world scenarios.
@@ -283,8 +281,6 @@ The system does not automate the classification of cybersecurity threats into st
 
 - **Model Training and Fine-Tuning:** Fine-tune pre-trained models on cybersecurity datasets.
 
-- **RAG Integration:** Implement the RAG approach for organization-specific impact assessments.
-
 - **Web-Based Interface Development:** Develop a user-friendly web application for real-time threat analysis.
 
 - **Evaluation and Testing:** Conduct thorough testing and evaluation of the system.
@@ -293,3 +289,5 @@ The system does not automate the classification of cybersecurity threats into st
 ## Conclusion
 
 This project aims to develop an **AI-powered chatbot** that automates the classification of **MITRE ATT&CK techniques** and provides organization-specific impact assessments. By leveraging **fine-tuned NLP models** and **RAG**, the system will enhance threat intelligence, improve incident response times, and support informed decision-making in cybersecurity operations.
+
+
