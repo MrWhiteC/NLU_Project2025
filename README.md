@@ -1,207 +1,38 @@
-# AI Chatbot for MITRE ATT&CK Threat Classification and Organizational Impact Analysis
+# AI System For MITRE ATT&CK Threat Classification And Organizational Impact Analysis
 
 ## Overview
 
-This project aims to develop an **AI-powered chatbot** that leverages **Natural Language Processing (NLP)** to classify cybersecurity news articles into **MITRE ATT&CK techniques** and assess their potential impact on organizations. The chatbot will utilize **fine-tuned transformer models** (e.g., BERT, GPT) for threat classification and integrate **Retrieval-Augmented Generation (RAG)** to provide organization-specific threat assessments. The goal is to automate threat intelligence, improve incident response times, and enhance decision-making for cybersecurity teams.
+This project introduces an **AI-powered Natural Language Processing (NLP) system** that automates the **classification** of **cybersecurity news articles** into **MITRE ATT&CK techniques**. A fine-tuned **BERT-based model**, specifically **CTI-BERT**, is used for the classification task, providing better performance than baseline models and traditional rule-based methods. The system is designed to support cybersecurity teams by identifying relevant ATT&CK techniques, **reducing the time, effort, and inconsistency associated with manual threat analysis**.
 
 
 ## Key Features
-- **Automated Threat Classification:** The chatbot will classify cybersecurity news articles into MITRE ATT&CK techniques using fine-tuned NLP models.
 
-- **Organization-Specific Impact Analysis:** By integrating RAG, the chatbot will retrieve relevant information from organizational documents to provide tailored threat assessments.
+- **Automated Classification:** The BERT-based model automatically classifies cybersecurity news articles into relevant MITRE ATT&CK techniques, enhancing the efficiency of threat analysis.
 
-- **Real-Time Threat Analysis:** A web-based interface will allow users to input cybersecurity news and receive immediate feedback on ATT&CK techniques classification and organizational impact.
+- **Fine-tuning for Cybersecurity:** The model is fine-tuned specifically on cybersecurity-specific dataset, ensuring high relevance and accuracy in threat classification.
 
-- **Comparative Model Analysis:** The project will compare the performance of different NLP models (e.g., BERT, GPT, LSTMs) in classifying cybersecurity threats and use the best one.
+- **Improved Efficiency:** Reduces the time and effort spent on manual classification, helping security teams react faster to threats.
+
+- **Evaluation Against Baseline Models:** The system's performance will be assessed against traditional keyword-based and rule-based methods, ensuring that it offers significant improvements in both accuracy and relevance.
+
+- **Human Feedback Loop:** Feedback from cybersecurity experts will be integrated into the model evaluation, further enhancing its capabilities for practical, real-world applications.
 
 
 ## Related Works
-Cyber threat intelligence (CTI) and cybersecurity NLP research have advanced significantly, with various studies addressing different aspects of cyber threat detection, classification, and information extraction. Below are key related works that inform the approach to building an **AI-powered chatbot for MITRE ATT&CK threat classification and organizational impact analysis**.
 
-**1. Noise Contrastive Estimation-based Matching Framework for Low-Resource Security Attack Pattern Recognition**
+This research builds on several notable works in the field of cybersecurity threat intelligence and natural language processing (NLP):
 
-**Problem Statement:**  
-- With the complexity, long-tailedness and huge number of multi-label classification of Tactics, Techniques and Procedures (TTPs), this could hinder the learning ability of the model.
+**1. Noise Contrastive Estimation-based Matching Framework for Low-Resource Security Attack Pattern Recognition (Nguyen et al., 2024)** introduced a ranking-based Noise Contrastive Estimation (NCE) to address challenges in multi-label classification of Tactics, Techniques, and Procedures (TTPs). While successful, it faced issues with training time and the scope of the MITRE ATT&CK framework.
 
-**Key Contributions:**  
-- Proposing a new learning paradigm on mapping the TTPs in classification problem.
-- Introducing ranking-based Noise Contrastive Estimation (NCE) for handling large labelling together with missing labels problems.
-- Curating and publicizing an export-annotation dataset.
-- Conducting extensive experiments in their learning methods.
+**2. Automatic Mapping of Unstructured Cyber Threat Intelligence (Orbinato et al., 2022)** explored machine learning and deep learning methods for classifying Cyber Threat Intelligence (CTI) into MITRE ATT&CK categories. Their work showed that deep learning outperformed traditional approaches, but the complexity of natural language made precise classification challenging.
 
-**Methodology:** 
-- **Matching Network**: Dual-encoder framework was introduced for matching models through a **Siamese network**. The target text will be compared with the **TTP textual profile**.  
-- **Learning to Match and Contrast**: **Dynamic label-informed text matching** was introduced. The ranker will act as the matcher where the higher probability of the match will be marked as **positive** and lower probability as **negative**.  
-- **Sampling Strategies**: **Corpus-level negative sampling** was extremely useful for **discriminative mechanisms of the datasets**. Those negative sampling strategies could help to **show noisy samples** for cancellation during learning.  
-- **Hierarchical Multi-label Learning**: An **auxiliary task** was introduced to predict the **tactics of the textual input** concurrently with the matching task.  
-- **Experiments:** 
-  - **Datasets**: Various datasets were tested to evaluate the learning process.  
-  - **Metrics and Baselines**: Measured through **micro-average recall, precision, and F1 score** and **Mean Reciprocal Rank (MRR)** for ranking evaluation. Baselines included **Okapi BM25, Binary Relevance, Dynamic Triplet-loss, NAPKINXC**, and others.  
-  - **Experimental Setup**: Based on a language model named **SecBERT**, **hyperparameters were tuned** using **grid search** and compared across **all baselines within auxiliary tasks**.  
+**3. A Pretrained Language Model for Cyber Threat Intelligence (Park & You, 2023)** developed a BERT-based model specifically for cybersecurity, showing it worked better than general models. However, the limited size of datasets made challenges for performance on unseen data.
 
-**Conclusion:**
+**4. AnnoCTR: A Dataset for Detecting and Linking Entities, Tactics, and Techniques in Cyber Threat Reports (Lange et al., 2024)** provided a detailed dataset for specific NLP tasks related to MITRE ATT&CK, which will be useful for this research in automating threat classification from cybersecurity news.
 
-The proposed **NCE-based models** outperformed **other baselines** through dataset crafting, comparison, and hyperparameter tuning. This new learning paradigm integrates **inductive bias into classification tasks**, significantly improving **TTP classification**.
+**5. Introducing a New Dataset for Event Detection in Cybersecurity Texts (Duc Trong et al., 2020)** focused on improving event detection models, highlighting the limitations of sentence-level context in capturing complex cybersecurity events. This work emphasizes the need for document-level context, which the proposed system aims to use.
 
-**Gaps:** 
-The training process took a very long due to a very large datasets of frameworks. This result in the coverage of TTPs which could provide a limit size in the prediction. 
-
-**Relevance to the Project:** This work demonstrates that **NCE-based learning paradigms** can improve **cybersecurity NLP models**, which aligns with the **fine-tuned classification approach**.
-
-**2. A Pretrained Language Model for Cyber Threat Intelligence**
-
-**Problem Statement:**  
-- To **digest information** from many **Cyber Threat Intelligence (CTI) reports** within a limited time.  
-
-**Key Contributions:**  
-- Develop a **pre-trained BERT model** tailored for the **cybersecurity domain**.  
-- Perform **extensive experiments** on **various cybersecurity NLP tasks**.  
-- Curate a **large-scale cybersecurity dataset** specifically designed for **CTI analysis**.  
-
-**Methodology:** 
-- **Data Collection**: Collected from multiple sources including **academic papers, security wikis, threat reports, and vulnerability databases** to form a **diverse cybersecurity corpus**.  
-- **Training**:  
-  - Used **WordPiece tokenizer** to generate **50,000 tokens**.  
-  - Applied **Masked Language Modeling (MLM)** for training.  
-- **Evaluation**: The **CTI-BERT model** was evaluated against general-domain models (**BERT-base, RoBERTa**) and cybersecurity-specific models (**SecBERT, SecRoBERTa, SecureBERT**).  
-  - **Masked Word Prediction**: Evaluates the **domain knowledge of models**.  
-  - **Sentence Classification**: Used **classifier head (hidden layer & output projection layer)**.  
-  - **ATT&CK Technique Classification**: Helps **Security Operation Center (SOC) teams** analyze reports.  
-  - **IoT App Description Classification**.  
-  - **Malware Sentence Detection**: Distinguishes **malware vs. non-malware sentences**.  
-  - **Malware Attribute Classification**: Categorizes sentences using **MAEC (Malware Attribute Enumeration and Characterization)**.
-- **Token Classification Tasks**: The model will be compared in the tokenization level as well in order to evaluate the effectiveness.
-    - **NER1**: **Coarse-grained Security Entities** using **STIX-based labels (8 types)**.  
-    - **NER2**: **Fine-grained Security Entities** with **16 entity types**.  
-    - **Token Type Classification**: Categorizes tokens into **entity, action, and modifier**.  
-
-**Conclusion:**
-
-The proposed **CTI-BERT model** outperformed existing **general-domain** and **cybersecurity-domain** models.
-
-**Gaps:** 
-The model will works only with the English language which in real-world of cybersecurity many news are distributed in many language. In addition, the model was trained with very little datasets which could cause some problem to unknown cybersecurity news or intelligence.
-
-**Relevance to the Project:** Since the chatbot needs to **classify cybersecurity news into MITRE ATT&CK techniques**, CTI-BERT’s **domain-specific pretraining** supports **higher accuracy and relevance in classification tasks**.
-
-**3. AnnoCTR: A Dataset for Detecting and Linking Entities, Tactics, and Techniques in Cyber Threat Reports**
-
-**Problem Statement:**  
-- CTI relies on **analyzing large volumes of cyber threat reports (CTRs)** to identify attack tactics, techniques, and threat actors. However, most datasets **lack fine-grained annotations** for cybersecurity-specific entities and do not provide **structured links to MITRE ATT&CK**.   
-
-**Key Contributions:**  
-- **AnnoCTR Dataset**: **400 Cyber Threat Reports (CTRs)** with **120 reports** containing **detailed annotations**.  
-- **Fine-Grained Cybersecurity Annotations**: Entities classified into **general named entities** and **cybersecurity-specific entities** (hacker groups, malware, tools, MITRE ATT&CK tactics & techniques).  
-- **Explicit vs. Implicit Attack Technique Detection**: Identifies both **directly stated** and **contextually inferred techniques**.  
-- **Entity Linking**: Maps tactics, techniques, and hacker groups to **MITRE ATT&CK** and general entities to **Wikipedia**.  
-- **Benchmarking NLP Models**: Evaluated **BERT, RoBERTa, SciBERT, BLINK, and GENRE** for cybersecurity NLP tasks.  
-
-**Methodology:**
-- **Data Collection**: Sourced **CTRs from Intel471, Lab52, Proofpoint, QuoIntelligence, and ZScaler (2013-2022)**.  
-- **Annotation Process**:  
-  - **General Named Entities (GNEs)** labeled by engineers.  
-  - **Cybersecurity-Specific Entities (CyNEs)** labeled by domain experts & validated by security professionals.  
-- **Entity Linking**:  
-  - **Wikipedia** (for general cybersecurity concepts).  
-  - **MITRE ATT&CK** (for tactics, techniques, hacker groups).  
-- **NLP Model Evaluation**:  
-  - **Named Entity Recognition (NER)**: BERT, SciBERT, RoBERTa, BiLSTM-CRF.  
-  - **Temporal Expression Tagging**: Rule-based HeidelTime vs. Neural Models with Domain Adaptation.  
-  - **Entity Linking**: BLINK & GENRE.  
-  - **Tactic & Technique Classification**: Few-shot learning models trained on **MITRE ATT&CK descriptions**.  
-- **Performance Metrics**: Measured using **precision, recall, and F1-score**.
-
-**Conclusion:**
-
-**AnnoCTR is the first openly available cybersecurity dataset** with **fine-grained annotations** for **MITRE ATT&CK tactics and techniques**. Evaluation results show that:  
-- **RoBERTa performs best** for **Named Entity Recognition (NER)**.  
-- **Fine-tuned GENRE** is most effective for **Entity Linking**.  
-- **Few-shot learning improves Tactic & Technique Classification**.  
-
-AnnoCTR provides a **strong foundation** for **automated cyber threat intelligence processing**.
-
-**Gaps:** 
-Existing approaches struggle with disambiguating ATT&CK techniques due to complex terminology and limited data. 
-
-**Relevance to the Project:** This dataset supports **more accurate ATT&CK technique classification**, which enhances the **training data for chatbot-based threat intelligence automation**.
-
-**4. Introducing a New Dataset for Event Detection in Cybersecurity Texts**
-
-**Problem Statement:**  
-- Cybersecurity event detection (ED) involves identifying trigger words that indicate cybersecurity events in text. Existing datasets, such as CASIE (Cybersecurity and Attack Strategies for Information Extraction), have limited event types (5 types) and do not consider document-level context, making them insufficient for real-world cybersecurity ED. To address these limitations, the paper introduces CySecED, a new dataset that covers more event types and requires document-level context for accurate detection.
-
-**Key Contributions:**  
-- **New Dataset (CySecED):** Introduces a manually annotated dataset with 30 cybersecurity event types, significantly expanding on CASIE.
-- **Comprehensive Model Evaluation:** Compares sentence-level and document-level ED models, showing the importance of document context.
-- **Challenges & Insights:** Identifies key challenges in cybersecurity event annotation, including trigger ambiguity and domain expertise requirements.
-- **Future Research Directions:** Highlights the need for better document-aware architectures, domain-adapted embeddings, and event argument annotation.
-
-**Methodology:** 
-- **Dataset Collection:** Extracted cybersecurity news articles from The Hacker News (THN) and selected 30 event types based on the Simmons et al. (2014) cyberattack taxonomy.
-- **Annotation Process:** Two annotators with security expertise labeled event trigger words, achieving Cohen’s Kappa = 0.79 after expert review.
-- **Model Evaluation:** Tested sentence-level models (CNN, DMCNN, MOGANED, BERT-ED) and document-level models (HBTNGMA, DEEB-RNN) using word2vec and BERT embeddings.
-
-**Conclusion:**
-
-CySecED is a newly introduced dataset for cybersecurity event detection (ED), addressing the limitations of CASIE by expanding event types from 5 to 30 and incorporating document-level context. Evaluation of state-of-the-art models reveals that current ED systems struggle with CySecED, with the best model achieving only 68.4% F1, far below human performance (81.0% F1). The results highlight the need for document-aware architectures and domain-adapted embeddings to improve cybersecurity ED. Future work includes event argument annotation and the exploration of advanced deep learning models. CySecED will be publicly released to support further research in NLP for cybersecurity.
-
-**Gaps:** 
-Existing ED datasets focus on event trigger detection but do not address cyber threat intelligence (CTI) retrieval. Traditional methods struggle with capturing nuanced attack relationships, and graph-based ED models remain underexplored in CTI
-
-**Relevance to the Project:** Since the chatbot will **classify threats based on cybersecurity news**, insights from **document-aware architectures** will improve the **Retrieval-Augmented Generation (RAG) approach**.
-
-**5. Full-Stack Information Extraction System for Cybersecurity Intelligence**
-
-**Problem Statement:**  
-- The problem addressed in this paper is the difficulty of managing and extracting actionable intelligence from large volumes of unstructured data (such as text reports, news articles, threat intelligence feeds) in the cybersecurity domain. Traditional methods for data extraction are often inefficient and unable to deal with the high volume, variety, and velocity of data in cybersecurity contexts. The need is for a system that can automatically extract relevant cybersecurity information, identify relationships and events, and present it in a structured and actionable form. 
-
-**Key Contributions:**  
-- **Full-Stack Information Extraction:** The paper introduces a comprehensive, end-to-end system for information extraction, which spans multiple layers of the process—from raw data collection, preprocessing, and entity recognition to knowledge graph generation and event analysis.
-- **Information Extraction:** The system focuses on extracting not just entities (e.g., IP addresses, malware names) but also events (e.g., data breaches, attacks) and their relationships, which is vital for cybersecurity analysis.
-- **Integration of Various Tools:** It integrates Natural Language Processing (NLP) and machine learning (ML) with domain-specific cybersecurity intelligence, enabling better context understanding and more accurate extraction.
-- **Scalability and Automation:** The system is designed to scale with the growing amount of cybersecurity data, automating the extraction process to save time and human resources.
-
-**Methodology:** 
-- **Data Collection and Preprocessing:** The system starts with gathering raw, unstructured cybersecurity data from various sources like news, reports, and threat intelligence platforms. The data is then cleaned and standardized to ensure consistency.
-- **Entity Recognition and Event Extraction:** Using machine learning-based techniques and NLP methods (such as Named Entity Recognition (NER)), the system extracts key entities like IP addresses, threat types, and attack methods.
-- **Contextual Analysis:** The system applies domain-specific context to better understand and interpret the entities, identifying relationships between them (e.g., which attack type is linked to a specific vulnerability).
-- **Knowledge Graph Construction:** Extracted data is used to build a dynamic knowledge graph that maps the relationships between entities and events in cybersecurity, offering an insightful view of ongoing or past incidents.
-
-**Conclusion:**
-
-The proposed system effectively automates the extraction and structuring of valuable cybersecurity intelligence from unstructured data, enhancing scalability and decision-making in cybersecurity operations, with future improvements focused on accuracy and adaptation to emerging threats.
-
-**Gaps:** 
-It does not integrate with structured frameworks such as MITRE ATT&CK, nor does it classify extracted entities by specific attack techniques, which limits its ability to provide actionable insights and hinders real-time threat mitigation.
-
-**Relevance to the Project:** The chatbot will **extract threat insights from cybersecurity news**, and this system’s **entity recognition techniques** align with the **automated threat classification goals**.
-
-**6. Bootstrapping a Natural Language Interface to a Cybersecurity Event Collection System**
-
-**Problem Statement:**  
-- The paper tackles the challenge of enabling non-expert users to interact with complex cybersecurity event collection systems using natural language queries. Traditional query interfaces require technical expertise, which limits accessibility for non-technical stakeholders and hinders broader adoption of cybersecurity tools. This creates a significant barrier for organizations that rely on diverse teams to monitor and respond to cybersecurity events. The lack of a user-friendly interface prevents non-experts from effectively utilizing these systems, reducing overall efficiency and responsiveness in cybersecurity operations.
-  
-**Key Contributions:**  
-- **Hybrid Translation Approach:** The paper introduces a hybrid approach that combines rule-based and machine learning methods for translating natural language queries into system queries or structured data in cybersecurity event collection systems.
-- **Natural Language Interface for Cybersecurity:** By developing an NLI, the paper provides a user-friendly interface to interact with complex cybersecurity event systems, reducing the need for specialized knowledge.
-- **Bootstrapping the Translation Process:** The paper introduces an innovative method for bootstrapping the translation process, which involves using an initial set of rules and examples to "train" the system to handle increasingly complex user queries.
-- **Improved Usability for Security Analysts:** The interface simplifies the process of querying cybersecurity event data, making it more accessible to analysts without deep technical knowledge.
-
-**Methodology:** 
-- **Data Collection:** The researchers gather cybersecurity event data and related queries from existing systems. This forms the basis for training the hybrid model and understanding the requirements of the cybersecurity domain.
-- **Rule-Based Translation:** Initially, a rule-based approach is used to translate predefined, simple queries into system-specific queries that can be processed by the cybersecurity event collection system.
-- **Machine Learning Integration:** As more queries are processed, machine learning techniques are applied to refine and expand the system's understanding, enabling it to handle more complex, nuanced natural language queries.
-- **Hybrid System Development:** A hybrid system is developed by combining the simplicity and interpretability of rule-based approaches with the flexibility and scalability of machine learning. This enables better accuracy and adaptability to various types of user queries.
-- **User Interface:** Implements an intuitive NLI for users to input queries and receive results.
-
-**Conclusion:**
-
-The hybrid translation approach effectively enables non-expert users to query complex cybersecurity event systems using natural language, enhancing accessibility and adaptability. Future work could focus on expanding natural language capabilities, improving the system’s handling of ambiguous queries, and integrating with a wider range of cybersecurity tools and data sources.
-
-**Gaps:** 
-The system does not automate the classification of cybersecurity threats into structured frameworks like MITRE ATT&CK, and focuses primarily on query-based interactions rather than real-time threat classification.
-
-**Relevance to the Project:** Since the chatbot will allow **security analysts to query threats using natural language**, this work informs **conversational interface design**.
+**6. Full-Stack Information Extraction System for Cybersecurity Intelligence (Park & Lee, 2022)** proposed a system to extract and organize cybersecurity information. However, it didn’t connect with standardized frameworks like MITRE ATT&CK, which led to disorganized data. This research aims to fix that by automating threat classification within the MITRE ATT&CK framework.
 
 
 ## Methodology
@@ -218,32 +49,64 @@ The system does not automate the classification of cybersecurity threats into st
 ![methodology_nlp drawio](https://github.com/user-attachments/assets/a885a9de-b47d-4fe8-9693-7890f04801b5)
 
 
-## Expected Results
-- **Accurate Threat Classification:** The chatbot will accurately classify cybersecurity news into MITRE ATT&CK techniques.
+## Preliminary Results
 
-- **Enhanced Threat Intelligence:** The integration of RAG will provide organization-specific impact assessments, improving decision-making for cybersecurity teams.
+This section presents the preliminary results from experiments evaluating the performance of various BERT-based models in classifying cybersecurity-specific dataset into MITRE ATT&CK techniques. The models evaluated were:
 
-- **Model Comparison:** A comparative analysis of different NLP models will identify the most effective approach for ATT&CK classification.
+- **BERT-base-uncased**
+- **CTI-BERT**
+- **Secure-BERT**
 
-- **Real-Time Web-Based Chatbot:** A functional web-based chatbot will be developed for real-time threat analysis and impact assessment.
+These models were evaluated using the following classification metrics:
 
-- **Improved Incident Response:** The system will reduce manual effort in threat classification and improve incident response times.
+- Training Loss
+- Validation Loss
+- Accuracy
+- Precision
+- Recall
+- F1-Score
 
-- **Human Evaluation and Expert Feedback:** This qualitative feedback will refine the model, ensuring it meets the needs of the organization.
+### Model Performance
+
+The table below summarizes the performance of the three models based on the metrics mentioned:
+
+| Metric              | BERT-base-uncased | CTI-BERT | Secure-BERT |
+|---------------------|-------------------|----------|-------------|
+| **Training Loss**   | 3.58              | 2.77     | 3.58        |
+| **Validation Loss** | 3.44              | 2.71     | 3.31        |
+| **Accuracy**        | 43.76%            | 54.64%   | 44.45%      |
+| **Precision**       | 29.21%            | 43.17%   | 29.98%      |
+| **Recall**          | 43.76%            | 54.64%   | 44.45%      |
+| **F1-Score**        | 33.35%            | 46.61%   | 33.71%      |
+
+From the table, it's clear that **CTI-BERT** outperforms the other models across all metrics. It achieved the lowest training loss (2.77) and validation loss (2.71), as well as the highest accuracy (54.64%)—about 10% higher than BERT-base-uncased. Additionally, it led in precision (43.17%), recall (54.64%), and F1-score (46.61%).
+
+### Real-world Impact on Threat Intelligence
+
+The expected outcome of this research is that fine-tuned BERT models, especially **CTI-BERT**, will significantly reduce the time needed for threat classification. By automating the process of classifying cybersecurity news into MITRE ATT&CK techniques, cybersecurity teams can quickly identify relevant attack patterns. This will help improve response times to emerging threats and lead to faster decision-making during incidents. 
+
+Automating threat classification also reduces human error and avoids inconsistencies in manual threat mapping, helping security teams to make more accurate, efficient decisions. Ultimately, this will strengthen cybersecurity, optimize resource use, and improve protection against cyberattacks.
 
 
 ## Datasets
 
-**1. [sarahwei/cyber_MITRE_technique_CTI_dataset_v16](https://huggingface.co/datasets/sarahwei/cyber_MITRE_technique_CTI_dataset_v16):** A dataset mapping security text to MITRE ATT&CK techniques.
+**1. [tumeteor/Security-TTP-Mapping](https://huggingface.co/datasets/tumeteor/Security-TTP-Mapping):** A dataset mapping security text to Tactics, Techniques, and Procedures (TTPs) to help identify attack patterns.
 
-**2. [sarahwei/cyber_MITRE_attack_tactics-and-techniques](https://huggingface.co/datasets/sarahwei/cyber_MITRE_attack_tactics-and-techniques):** A dataset with questions and answers related to the MITRE ATT&CK framework.
+**2. [MITRE ATT&CK Dataset (Orbinato et al., 2022)](https://arxiv.org/pdf/2208.12144):** A collection of attack patterns and relationships mapped to MITRE ATT&CK techniques and tactics in JSON format.
 
-**3. [mrmoor/cyber-threat-intelligence](https://huggingface.co/datasets/mrmoor/cyber-threat-intelligence):** A dataset containing text on vulnerabilities and corresponding diagnostic solutions.
+**3. [Zainabsa99/mitre_attack](https://huggingface.co/datasets/Zainabsa99/mitre_attack):** A dataset translating MITRE ATT&CK IDs into a consumable format with attack details and detection techniques.
 
-## Evaluation Metrics
-- **Quantitative Metrics:** Accuracy, precision, recall, and F1-score will be used to evaluate the model's classification performance.
 
-- **Human Evaluation:** Cybersecurity experts will assess the chatbot's practical accuracy and relevance in real-world scenarios.
+## Summary of Progress
+- **Scope the project and system:** From the first proposed solution, there are multiple redundancy and out-of-scope task. This made the scope to be reduced and complying feasible scope within timeline and knowledge.
+
+- **Corporate more related works:** In order to increase more relatable models, the paper were being reviewed more for ingesting the some potential model or methodology in proposed solutions.
+
+- **Model Comparison:** Model with three comparisons will be evaluated in order to pick the best model for this task.
+
+- **Datasets Exploration:** More datasets had been explored which could be potentially insert as a trained data for providing the most relatable results. 
+
+- **Consultant with TA:** For scoping the topic, consultation with TA’s NLP had been done for get a clear picture and staying on the right track.
 
 
 ## Limitations and Challenges
@@ -259,18 +122,6 @@ The system does not automate the classification of cybersecurity threats into st
   - Potential risk of inaccurate classification for new use cases.
 
 
-## Summary of Progress
-- **Scope the project and system:** From the first proposed solution, there are multiple redundancy and out-of-scope task. This made the scope to be reduced and complying feasible scope within timeline and knowledge.
-
-- **Corporate more related works:** In order to increase more relatable models, the paper were being reviewed more for ingesting the some potential model or methodology in proposed solutions.
-
-- **Model Comparison:** Model with three comparisons will be evaluated in order to pick the best model for this task.
-
-- **Datasets Exploration:** More datasets had been explored which could be potentially insert as a trained data for providing the most relatable results. 
-
-- **Consultant with TA:** For scoping the topic, consultation with TA’s NLP had been done for get a clear picture and staying on the right track.
-
-
 ## Next Steps
 - **Keyword Extractions:** According to the TA’s comments, the main improve of the model is identifying the potential keywords.
 
@@ -279,8 +130,3 @@ The system does not automate the classification of cybersecurity threats into st
 - **System Evaluation:** After finishing all the coding, the evaluation process will be performed through a human and machine judgment as the final validation. 
 
 - **Deployment:** The model will be deployed on the website allowing user to access for real-word use case.
-
-
-## Conclusion
-
-This research demonstrates the potential of AI-driven NLP systems to improve the **efficiency and accuracy of cybersecurity threat classification**. Although the system is still in development, the fine-tuned BERT model has shown promising results so far. Continued work will focus on **refining the model**, **incorporating expert feedback**, and **addressing challenges related to data quality**, **scalability**, and **integration** into real-world environments. Once fully implemented, the system has the potential to significantly **reduce manual effort, minimize human error, and help organizations respond to cybersecurity threats more quickly and effectively**.
