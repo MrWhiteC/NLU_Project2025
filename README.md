@@ -246,48 +246,41 @@ The system does not automate the classification of cybersecurity threats into st
 - **Human Evaluation:** Cybersecurity experts will assess the chatbot's practical accuracy and relevance in real-world scenarios.
 
 
-## Challenges and Concerns
-- **Data Quality and Availability:** Ensuring the availability of high-quality, labeled datasets for training.
+## Limitations and Challenges
+- **Imbalanced and Limited Ground Truth Datasets:**
+  - Difficulty in verifying model accuracy due to limited real-world datasets.
+  - Data is unbalanced, which makes it harder to train the model properly.
 
-- **Model Fine-Tuning Complexity:** Fine-tuning pre-trained models on domain-specific cybersecurity data.
+- **Specialized Domain Limitations:**
+  - Datasets come from specific areas, so they may not work well for other types of data.
 
-- **Computational Resources:** Managing the computational resources required for training large transformer models.
-
-- **Scalability and Real-Time Performance:** Optimizing the system for real-time threat analysis and scalability.
-
-- **Evaluation and Feedback:** Coordinating comprehensive human evaluation with cybersecurity experts to ensure the system’s practical effectiveness and relevance in real-world scenarios.
-
-- **Ethical and Privacy Concerns:** Handling sensitive organizational data in compliance with privacy regulations.
+- **Complexity of the MITRE ATT&CK Framework:**
+  - The framework’s complexity may affect model's ability to fully capture its context.
+  - Potential risk of inaccurate classification for new use cases.
 
 
 ## Summary of Progress
-- **Problem Definition and Scope:** The problem of automating cybersecurity threat analysis has been defined.
+- **Scope the project and system:** From the first proposed solution, there are multiple redundancy and out-of-scope task. This made the scope to be reduced and complying feasible scope within timeline and knowledge.
 
-- **Literature Review:** A review explored existing cybersecurity systems, highlighting challenges and opportunities in automation using MITRE ATT&CK.
+- **Corporate more related works:** In order to increase more relatable models, the paper were being reviewed more for ingesting the some potential model or methodology in proposed solutions.
 
-- **Proposed Solution Design:** A solution integrating fine-tuned NLP models and RAG has been conceptualized.
+- **Model Comparison:** Model with three comparisons will be evaluated in order to pick the best model for this task.
 
-- **Research Questions:** Key research questions have been defined.
+- **Datasets Exploration:** More datasets had been explored which could be potentially insert as a trained data for providing the most relatable results. 
 
-- **Methodology Planning:** The methodology for the experiment has been outlined.
-
-- **Expected Results:** The expected outcomes of the research have been defined.
+- **Consultant with TA:** For scoping the topic, consultation with TA’s NLP had been done for get a clear picture and staying on the right track.
 
 
 ## Next Steps
-- **Data Preprocessing and Tokenization:** Prepare the datasets for model training.
+- **Keyword Extractions:** According to the TA’s comments, the main improve of the model is identifying the potential keywords.
 
-- **Experiment with Datasets and Model:** EDA and playing around with datasets and models to understand the nature of the data.
+- **Experiment on Pre-processing:** In order to extract the context from sentence, pre-processing methods will be experimented for selecting the best method to processing the sentence in order to improve accuracy.
 
-- **Model Training and Fine-Tuning:** Fine-tune pre-trained models on cybersecurity datasets.
+- **System Evaluation:** After finishing all the coding, the evaluation process will be performed through a human and machine judgment as the final validation. 
 
-- **Web-Based Interface Development:** Develop a user-friendly web application for real-time threat analysis.
-
-- **Evaluation and Testing:** Conduct thorough testing and evaluation of the system.
+- **Deployment:** The model will be deployed on the website allowing user to access for real-word use case.
 
 
 ## Conclusion
 
-This project aims to develop an **AI-powered chatbot** that automates the classification of **MITRE ATT&CK techniques** and provides organization-specific impact assessments. By leveraging **fine-tuned NLP models** and **RAG**, the system will enhance threat intelligence, improve incident response times, and support informed decision-making in cybersecurity operations.
-
-
+This research demonstrates the potential of AI-driven NLP systems to improve the **efficiency and accuracy of cybersecurity threat classification**. Although the system is still in development, the fine-tuned BERT model has shown promising results so far. Continued work will focus on **refining the model**, **incorporating expert feedback**, and **addressing challenges related to data quality**, **scalability**, and **integration** into real-world environments. Once fully implemented, the system has the potential to significantly **reduce manual effort, minimize human error, and help organizations respond to cybersecurity threats more quickly and effectively**.
