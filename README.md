@@ -37,7 +37,7 @@ This research builds on several notable works in the field of cybersecurity thre
 
 ## Methodology
 
-## Old Work Flow
+### Old Work Flow
 
 **1. Manual Search for Threat Information
 **2. Human Judgment & Filtering
@@ -53,7 +53,7 @@ This research builds on several notable works in the field of cybersecurity thre
 ![Old_Workflow drawio](https://github.com/user-attachments/assets/517005a5-c912-4ebb-ae8f-05c82d26c106)
 
 
-## New Work Flow
+### New Work Flow
 
 **1. Select Models for Comparison. Three models selected for comparison are: BERT-Base-Uncased, CTI-BERT and Secure-BERT
 **2. Tokenizer and Word Embeddings
