@@ -42,13 +42,13 @@ This research builds on several notable works in the field of cybersecurity thre
 **1.** Manual Search for Threat Information.  <br/>
 **2.** Human Judgment & Filtering  <br/>
 **3.** Split into Two Main Tasks
-- Task1: Security Awareness
- - summarized readable content
-- Task2: Threat Identification
- - Technique & Tactic Extraction: aligned with frameworks like MITRE ATT&CK
- - Pattern Matching
- - Notify Security Teams
- - Mitigation Planning
+ - Task1: Security Awareness
+  - summarized readable content
+ - Task2: Threat Identification
+  - Technique & Tactic Extraction: aligned with frameworks like MITRE ATT&CK
+  - Pattern Matching
+  - Notify Security Teams
+  - Mitigation Planning
     
 ![Old_Workflow drawio](https://github.com/user-attachments/assets/517005a5-c912-4ebb-ae8f-05c82d26c106)
 
