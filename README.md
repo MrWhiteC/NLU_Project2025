@@ -39,10 +39,10 @@ This research builds on several notable works in the field of cybersecurity thre
 
 ### Old Work Flow
 
-**1.** Manual Search for Threat Information.
-**2.** Human Judgment & Filtering
-**3.** Split into Two Main Tasks
-  **3.1**. Task1: Security Awareness 
+**1.** Manual Search for Threat Information.  <br/>
+**2.** Human Judgment & Filtering  <br/>
+**3.** Split into Two Main Tasks<br/>
+  **3.1**. Task1: Security Awareness <br/>
     - summarized readable content
   **3.2.** Task2: Threat Identification
     - Technique & Tactic Extraction: aligned with frameworks like MITRE ATT&CK
