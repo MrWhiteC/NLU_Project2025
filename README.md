@@ -39,12 +39,12 @@ This research builds on several notable works in the field of cybersecurity thre
 
 ### Old Work Flow
 
-**1. Manual Search for Threat Information
-**2. Human Judgment & Filtering
-**3. Split into Two Main Tasks
-  **1. Task1: Security Awareness 
+**1.** Manual Search for Threat Information
+**2.** Human Judgment & Filtering
+**3.** Split into Two Main Tasks
+  **3.1**. Task1: Security Awareness 
     - summarized readable content
-  **2. Task2: Threat Identification
+  **3.2.** Task2: Threat Identification
     - Technique & Tactic Extraction: aligned with frameworks like MITRE ATT&CK
     - Pattern Matching
     - Notify Security Teams
@@ -55,16 +55,16 @@ This research builds on several notable works in the field of cybersecurity thre
 
 ### New Work Flow
 
-**1. Select Models for Comparison. Three models selected for comparison are: BERT-Base-Uncased, CTI-BERT and Secure-BERT
-**2. Tokenizer and Word Embeddings
-**3. Training the Models: train 3 models with the same dataset and turn hyperparameters
-**4. Evaluate Performance
-**5. Select the Best Model
-**6. Pre-process the News or Articles
+**1.** Select Models for Comparison. Three models selected for comparison are: BERT-Base-Uncased, CTI-BERT and Secure-BERT
+**2.** Tokenizer and Word Embeddings
+**3.** Training the Models: train 3 models with the same dataset and turn hyperparameters
+**4.** Evaluate Performance
+**5.** Select the Best Model
+**6.** Pre-process the News or Articles
   - Method 1: Sentence-Level Processing: The text will be processed at sentence level, mapping the relation between the sentence and MITRE ATT&CK attack patterns.
   - Method 2: Clause-Level Processing: The text will be processed at clause level, where each clause is mapped to MITRE ATT&CK attack patterns.
-**7. Compare Accuracy of These Two Methods
-**8. Human Evaluation: A cybersecurity analyst or engineer will verify the classification results 
+**7.** Compare Accuracy of These Two Methods
+**8.** Human Evaluation: A cybersecurity analyst or engineer will verify the classification results 
 
 
 ![methodology_nlp drawio-3](https://github.com/user-attachments/assets/2cf8fab1-753b-4225-8c12-f70f5fc3d37d)
