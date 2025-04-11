@@ -39,8 +39,8 @@ This research builds on several notable works in the field of cybersecurity thre
 
 ### Old Work Flow
 
-1. Manual Search for Threat Information.  <br/>
-2. Human Judgment & Filtering  <br/>
+1. Manual Search for Threat Information
+2. Human Judgment & Filtering
 3. Split into Two Main Tasks
  - Task1: Security Awareness
   - summarized readable content
