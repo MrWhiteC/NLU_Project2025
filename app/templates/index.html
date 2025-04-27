@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MITRE ATT&CK Threat Classification and Impact Analysis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    .form-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn {
+      background-color: #2c5364;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #1c3b4d;
+    }
+
+    .results-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .input-text {
+      width: 48%;
+      padding-right: 20px;
+    }
+
+    .input-text p {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .prediction-results {
+      width: 48%;
+    }
+
+    .prediction-card {
+      background-color: #f9fafc;
+      border-left: 5px solid #2c5364;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .prediction-card p {
+      margin: 10px 0;
+    }
+
+    .predicted-label a {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.05em;
+      color: #2c5364;
+      background-color: #eef4f8;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1px solid #2c5364;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .predicted-label a:hover {
+      background-color: #d9e8f0;
+      border-color: #1c3b4d;
+      color: #1c3b4d;
+    }
+
+    .predicted-label a svg {
+      margin-left: 6px;
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .confidence-score {
+      color: #2c5364;
+      font-weight: 500;
+      display: none;
+      margin-top: 10px;
+    }
+
+    .toggle-btn {
+      background-color: transparent;
+      border: none;
+      color: #2c5364;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0;
+      margin-top: 10px;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>MITRE ATT&CK Threat Classification and Impact Analysis</h1>
+</header>
+
+<main>
+  <div class="form-container">
+    <h2>Enter News Article</h2>
+    <form action="/predict" method="POST">
+      <textarea name="text" required placeholder="Enter the news article text here..."></textarea>
+      <button type="submit" class="btn">🔍 Classify Article</button>
+    </form>
+
+    {% if text %}
+    <div class="results-container">
+      <div class="input-text">
+        <h3>Input Article</h3>
+        <p>{{ text }}</p>
+      </div>
+
+      <div class="prediction-results">
+        <h2>🔐 Prediction Results</h2>
+        {% for sentence, pred_label, probs in predictions %}
+        <div class="prediction-card">
+          <p><strong>Sentence:</strong> {{ sentence }}</p>
+          <p class="predicted-label">
+            <strong>Predicted Technique:</strong>
+            {% set parts = pred_label.split('.') %}
+            {% if parts|length == 2 %}
+            <a href="https://attack.mitre.org/techniques/{{ parts[0] }}/{{ '%03d' % parts[1]|int }}/" target="_blank">
+              {{ pred_label }}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6V3H5c-1.1 0-2 .9-2 2v6h2V5zm14 14h-6v2h6c1.1 0 2-.9 2-2v-6h-2v6zm-14 0v-6H3v6c0 1.1.9 2 2 2h6v-2H5z"/>
+              </svg>
+            </a>
+            {% else %}
+            <a href="https://attack.mitre.org/techniques/{{ pred_label }}/" target="_blank">
+              {{ pred_label }}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6V3H5c-1.1 0-2 .9-2 2v6h2V5zm14 14h-6v2h6c1.1 0 2-.9 2-2v-6h-2v6zm-14 0v-6H3v6c0 1.1.9 2 2 2h6v-2H5z"/>
+              </svg>
+            </a>
+            {% endif %}
+          </p>
+          <button class="toggle-btn" onclick="toggleConfidence(this)">Show Confidence Scores</button>
+          <p class="confidence-score">
+            <strong>Confidence Scores:</strong>
+            {% for prob in probs %}
+              {{ prob }}
+            {% endfor %}
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</main>
+
+<script>
+  function toggleConfidence(button) {
+    const confidence = button.nextElementSibling;
+    const isVisible = confidence.style.display === 'block';
+    confidence.style.display = isVisible ? 'none' : 'block';
+    button.textContent = isVisible ? 'Show Confidence Scores' : 'Hide Confidence Scores';
+  }
+</script>
+
+</body>
+</html>
