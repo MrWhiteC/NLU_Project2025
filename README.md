@@ -41,16 +41,14 @@ This research builds on several notable works in the field of cybersecurity thre
 
 1. Manual Search for Threat Information
 2. Human Judgment & Filtering
-3. Split into Two Main Tasks
-     - Task1: Security Awareness
-       - summarized readable content
-     - Task2: Threat Identification
-       - Technique & Tactic Extraction: aligned with frameworks like MITRE ATT&CK
-       - Pattern Matching
-       - Notify Security Teams
-       - Mitigation Planning
+3. Threat Identification
+  - Technique & Tactic Extraction: aligned with frameworks like MITRE ATT&CK
+  - Pattern Matching
+  - Notify Security Teams
+  - Mitigation Planning
     
-![Old_Workflow drawio](https://github.com/user-attachments/assets/517005a5-c912-4ebb-ae8f-05c82d26c106)
+![Old_Workflow drawio](https://github.com/user-attachments/assets/9a024389-6530-4955-9e18-00430f973482)
+
 
 
 ### New Work Flow
@@ -60,63 +58,52 @@ This research builds on several notable works in the field of cybersecurity thre
 3. Training the Models: train 3 models with the same dataset and turn hyperparameters
 4. Evaluate Performance
 5. Select the Best Model
-6. Pre-process the News or Articles
-     - Method 1: Sentence-Level Processing: The text will be processed at sentence level, mapping the relation between the sentence and MITRE ATT&CK attack patterns.
-     - Method 2: Clause-Level Processing: The text will be processed at clause level, where each clause is mapped to MITRE ATT&CK attack patterns.
-7. Compare Accuracy of These Two Methods
-8. Human Evaluation: A cybersecurity analyst or engineer will verify the classification results 
+6. Utlized the QACG-BERT with previous trained model
+7. Pre-process the News or Articles
+8. Evaluation: A predifined groud truth will be used to evluate the classification results 
 
 
-![methodology_nlp drawio-3](https://github.com/user-attachments/assets/2cf8fab1-753b-4225-8c12-f70f5fc3d37d)
+![methodology_nlp drawio](https://github.com/user-attachments/assets/2903b294-0f0b-4437-87d3-c3e05f8c5549)
 
 
 
-## Preliminary Results
+## Results
 
-This section presents the preliminary results from experiments evaluating the performance of various BERT-based models in classifying cybersecurity-specific dataset into MITRE ATT&CK techniques. The models evaluated were:
+This section presents the results from experiments evaluating the performance of various BERT-based models in classifying cybersecurity-specific dataset into MITRE ATT&CK techniques. The models evaluated were:
 
 - **BERT-base-uncased**
 - **CTI-BERT**
 - **Secure-BERT**
 
-These models were evaluated using the following classification metrics:
+After that, the datasets will be modified to add the context inside which according to the QACGBERT model for evluating with groud truth.
 
-- **Training Loss**
-- **Validation Loss**
-- **Accuracy**
-- **Precision**
-- **Recall**
-- **F1-Score**
+### Standard Classification Metrics
 
-### Model Performance
+The table below summarizes the performance of the four models based on the metrics mentioned:
 
-The table below summarizes the performance of the three models based on the metrics mentioned:
+| Metric              | BERT-base-uncased | CTI-BERT | Secure-BERT |   QACGBERT  |
+|---------------------|-------------------|----------|-------------|-------------|
+| **Training Loss**   | 3.58              | 2.77     | 3.58        | 1.706076    |
+| **Validation Loss** | 3.44              | 2.71     | 3.31        | 4.723936    |
+| **Accuracy**        | 43.76%            | 54.64%   | 44.45%      | 0.168077    |
+| **Precision**       | 29.21%            | 43.17%   | 29.98%      | 0.163138    |
+| **Recall**          | 43.76%            | 54.64%   | 44.45%      | 0.168077    |
+| **F1-Score**        | 33.35%            | 46.61%   | 33.71%      | 0.144451    |
 
-| Metric              | BERT-base-uncased | CTI-BERT | Secure-BERT |
-|---------------------|-------------------|----------|-------------|
-| **Training Loss**   | 3.58              | 2.77     | 3.58        |
-| **Validation Loss** | 3.44              | 2.71     | 3.31        |
-| **Accuracy**        | 43.76%            | 54.64%   | 44.45%      |
-| **Precision**       | 29.21%            | 43.17%   | 29.98%      |
-| **Recall**          | 43.76%            | 54.64%   | 44.45%      |
-| **F1-Score**        | 33.35%            | 46.61%   | 33.71%      |
 
-From the table, it's clear that **CTI-BERT** outperforms the other models across all metrics. It achieved the lowest training loss (2.77) and validation loss (2.71), as well as the highest accuracy (54.64%)—about 10% higher than BERT-base-uncased. Additionally, it led in precision (43.17%), recall (54.64%), and F1-score (46.61%).
+### Normalized Discounted Cumulative Gain (NDCG) Metric
 
-### Real-world Impact on Threat Intelligence
+The groud truth will be evluated base on ChatGPT classification with 10 samples on news or articles.
 
-The expected outcome of this research is that fine-tuned BERT models, especially **CTI-BERT**, will significantly reduce the time needed for threat classification. By automating the process of classifying cybersecurity news into MITRE ATT&CK techniques, cybersecurity teams can quickly identify relevant attack patterns. This will help improve response times to emerging threats and lead to faster decision-making during incidents. 
 
-Automating threat classification also reduces human error and avoids inconsistencies in manual threat mapping, helping security teams to make more accurate, efficient decisions. Ultimately, this will strengthen cybersecurity, optimize resource use, and improve protection against cyberattacks.
+| Metric                     | CTI-BERT | QACGBERT |
+|----------------------------|--------- |----------|
+| **NDCG Score wit k = 20**  | 0.0000   | 0.0163   | 
 
 
 ## Datasets
 
 **1. [tumeteor/Security-TTP-Mapping](https://huggingface.co/datasets/tumeteor/Security-TTP-Mapping):** A dataset mapping security text to Tactics, Techniques, and Procedures (TTPs) to help identify attack patterns.
-
-**2. [MITRE ATT&CK Dataset (Orbinato et al., 2022)](https://arxiv.org/pdf/2208.12144):** A collection of attack patterns and relationships mapped to MITRE ATT&CK techniques and tactics in JSON format.
-
-**3. [Zainabsa99/mitre_attack](https://huggingface.co/datasets/Zainabsa99/mitre_attack):** A dataset translating MITRE ATT&CK IDs into a consumable format with attack details and detection techniques.
 
 
 ## Summary of Progress
