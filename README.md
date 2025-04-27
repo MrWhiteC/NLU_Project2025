@@ -88,12 +88,12 @@ The table below summarizes the performance of the four models based on the metri
 
 | Metric              | BERT-base-uncased | CTI-BERT | Secure-BERT |   QACGBERT  |
 |---------------------|-------------------|----------|-------------|-------------|
-| **Training Loss**   | 3.58              | 2.77     | 3.58        | 1.706076    |
-| **Validation Loss** | 3.44              | 2.71     | 3.31        | 4.723936    |
-| **Accuracy**        | 43.76%            | 54.64%   | 44.45%      | 0.168077    |
-| **Precision**       | 29.21%            | 43.17%   | 29.98%      | 0.163138    |
-| **Recall**          | 43.76%            | 54.64%   | 44.45%      | 0.168077    |
-| **F1-Score**        | 33.35%            | 46.61%   | 33.71%      | 0.144451    |
+| **Training Loss**   | 3.58              | 2.77     | 3.58        | 1.71        |
+| **Validation Loss** | 3.44              | 2.71     | 3.31        | 4.72        |
+| **Accuracy**        | 43.76%            | 54.64%   | 44.45%      | 16.81%      |
+| **Precision**       | 29.21%            | 43.17%   | 29.98%      | 16.31%      |
+| **Recall**          | 43.76%            | 54.64%   | 44.45%      | 16.81%      |
+| **F1-Score**        | 33.35%            | 46.61%   | 33.71%      | 14.44%      |
 
 
 ### Normalized Discounted Cumulative Gain (NDCG) Metric
@@ -127,16 +127,10 @@ The web-based interface allows users to interact with the trained model. Securit
 Clone the repository to your local machine.
 ```bash
 git clone https://github.com/MrWhiteC/NLU_Project2025.git
-cd a2-language-model/app
+cd app
 ```
 
-**2. Install dependencies:** 
-Install the dependencies listed in `requirements.txt`.
-```bash
-pip install -r requirements.txt
-```
-
-**3. Running the Flask App:**
+**2. Running the Flask App:**
 To start the Flask web application, run the following command:
 ```bash
 python app.py
@@ -156,11 +150,11 @@ This will start the app on `http://127.0.0.1:5000/`.
 
 **Screenshot 1: Homepage**
 
-![Homepage](images/homepage.png)
+![Homepage](photo/webpage_0.png)
 
-**Screenshot 2: Text Classification Output**
+**Screenshot 2: Text Classification Sample Output**
 
-![Sample Prompt](images/sample-prompt.png)
+![Sample Output](photo/output_0.png)
 
 ## Limitations and Challenges
 - **Accuracy Issues: Low accuracy due to**:
