@@ -106,36 +106,32 @@ The groud truth will be evluated base on ChatGPT classification with 10 samples 
 **1. [tumeteor/Security-TTP-Mapping](https://huggingface.co/datasets/tumeteor/Security-TTP-Mapping):** A dataset mapping security text to Tactics, Techniques, and Procedures (TTPs) to help identify attack patterns.
 
 
-## Summary of Progress
-- **Scope the project and system:** From the first proposed solution, there are multiple redundancy and out-of-scope task. This made the scope to be reduced and complying feasible scope within timeline and knowledge.
-
-- **Corporate more related works:** In order to increase more relatable models, the paper were being reviewed more for ingesting the some potential model or methodology in proposed solutions.
-
-- **Model Comparison:** Model with three comparisons will be evaluated in order to pick the best model for this task.
-
-- **Datasets Exploration:** More datasets had been explored which could be potentially insert as a trained data for providing the most relatable results. 
-
-- **Consultant with TA:** For scoping the topic, consultation with TA’s NLP had been done for get a clear picture and staying on the right track.
+## Repository Description
+- This repository consist of model training, evaluation ,and website deployment. Here are some expliantion about each component:
+  - Model Training
+  - Evaluation
+  - Website Deployment
 
 
 ## Limitations and Challenges
-- **Imbalanced and Limited Ground Truth Datasets:**
-  - Difficulty in verifying model accuracy due to limited real-world datasets.
-  - Data is unbalanced, which makes it harder to train the model properly.
+- **Accuracy Issues: Low accuracy due to**:
+  - Insufficient or imbalanced dataset.
+  - Overfitting and model’s difficulty generalizing to new attack types.
 
-- **Specialized Domain Limitations:**
-  - Datasets come from specific areas, so they may not work well for other types of data.
+- **Complex Attack Descriptions**: Variability in attack styles and terminologies.
 
-- **Complexity of the MITRE ATT&CK Framework:**
-  - The framework’s complexity may affect model's ability to fully capture its context.
-  - Potential risk of inaccurate classification for new use cases.
+- **Data Quality & Size**: Inadequate coverage of attack techniques, poor learning of certain attack behaviors.
+
+- **Language Limitation: Currently only supports English**, restricting global usability.
 
 
-## Next Steps
-- **Keyword Extractions:** According to the TA’s comments, the main improve of the model is identifying the potential keywords.
+## Conclusion & Future Works
+- **Conclusion:** The primary goal of this research was to reduce the manual effort required for analyzing cybersecurity news and improve the consistency and accuracy of threat classification. While the system shows potential, the current low accuracy, particularly during the evaluation phase, highlights the need for further development. The model can understand the context and language of cybersecurity news, but it still needs more improvement to ensure reliable and consistent threat detection. Moving forward, improving the model’s accuracy remains a crucial focus, which will enhance its practical application in real-world cybersecurity scenarios..
 
-- **Experiment on Pre-processing:** In order to extract the context from sentence, pre-processing methods will be experimented for selecting the best method to processing the sentence in order to improve accuracy.
+- **Future Works :**
+  - Expand Dataset: Include more types of attacks, descriptions, and tough examples for robustness.
+  - Fine-tune Model: Use more specific cybersecurity data for better understanding.
+  - Multilingual Support: Add support for different languages to broaden system’s applicability.
+  - Integration with Live Threat Feeds: Real-time classification of new threats by adapting to evolving attack methods.
 
-- **System Evaluation:** After finishing all the coding, the evaluation process will be performed through a human and machine judgment as the final validation. 
 
-- **Deployment:** The model will be deployed on the website allowing user to access for real-word use case.
