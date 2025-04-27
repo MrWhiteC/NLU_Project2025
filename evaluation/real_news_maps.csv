@@ -1,0 +1,446 @@
+﻿news,maps
+"Cybersecurity researchers have detailed the activities of an initial access broker (IAB) dubbed ToyMaker that has been observed handing over access to double extortion ransomware gangs like CACTUS.
+
+The IAB has been assessed with medium confidence to be a financially motivated threat actor, scanning for vulnerable systems and deploying a custom malware called LAGTOY (aka HOLERUN).
+
+""LAGTOY can be used to create reverse shells and execute commands on infected endpoints,"" Cisco Talos researchers Joey Chen, Asheer Malhotra, Ashley Shen, Vitor Ventura, and Brandon White said.
+
+Cybersecurity
+The malware was first documented by Google-owned Mandiant in late March 2023, attributing its use to a threat actor it tracks as UNC961. The activity cluster is also known by other names such as Gold Melody and Prophet Spider.
+
+The threat actor has been observed leveraging a huge arsenal of known security flaws in internet-facing applications to obtain initial access, followed by conducting reconnaissance, credential harvesting, and LAGTOY deployment within a span of a week.
+
+The attackers also open SSH connections to a remote host to download a forensics tool called Magnet RAM Capture to obtain a memory dump of the machine in a likely attempt to gather the victim's credentials.
+
+
+LAGTOY is designed to contact a hard-coded command-and-control (C2) server to retrieve commands for subsequent execution on the endpoint. It can be used to create processes and run commands under specified users with corresponding privileges, per Mandiant.
+
+The malware is also equipped to process three commands from the C2 server with a Sleep interval of 11000 milliseconds between them.
+
+""After a lull in activity of approximately three weeks, we observed the CACTUS ransomware group make its way into the victim enterprise using credentials stolen by ToyMaker,"" Talos said.
+
+Cybersecurity
+""Based on the relatively short dwell time, the lack of data theft and the subsequent handover to CACTUS, it is unlikely that ToyMaker had any espionage-motivated ambitions or goals.""
+
+In the incident analyzed by Talos, the CACTUS ransomware affiliates are said to have conducted reconnaissance and persistence activities of their own prior to data exfiltration and encryption. Also observed are multiple methods to set up long-term access using OpenSSH, AnyDesk, and eHorus Agent.
+
+""ToyMaker is a financially-motivated initial access broker (IAB) who acquires access to high-value organizations and then transfers that access to secondary threat actors who usually monetize the access via double extortion and ransomware deployment,"" the company said.","['T1190','T1078','T1059','T1133','T1078','T1027','T1036','T1003','T1071','T1105','T1486']"
+"North Korea-linked threat actors behind the Contagious Interview have set up front companies as a way to distribute malware during the fake hiring process.
+
+""In this new campaign, the threat actor group is using three front companies in the cryptocurrency consulting industry—BlockNovas LLC (blocknovas[.] com), Angeloper Agency (angeloper[.]com), and SoftGlide LLC (softglide[.]co)—to spread malware via 'job interview lures,"" Silent Push said in a deep-dive analysis.
+
+The activity, the cybersecurity company said, is being used to distribute three different known malware families, BeaverTail, InvisibleFerret, and OtterCookie.
+
+Contagious Interview is one of the several job-themed social engineering campaigns orchestrated by North Korea to entice targets into downloading cross-platform malware under the pretext of coding assignment or fixing an issue with their browser when turning on camera during a video assessment.
+
+The activity is tracked by the broader cybersecurity community under the monikers CL-STA-0240, DeceptiveDevelopment, DEV#POPPER, Famous Chollima, UNC5342, and Void Dokkaebi.
+
+The use of front companies for malware propagation, complemented by setting up fraudulent accounts on Facebook, LinkedIn, Pinterest, X, Medium, GitHub, and GitLab, marks a new escalation for the threat actors, who have been observed using various job boards to lure victims.
+
+""The BlockNovas front company has 14 people allegedly working for them, however many of the employee personas [...] appear to be fake,"" Silent Push said. ""When viewing the 'About Us' page of blocknovas[.]com via the Wayback Machine, the group claimed to have been operating for '12+ years' – which is 11 years longer than the business has been registered.""
+
+Cybersecurity
+The attacks lead to the deployment of a JavaScript stealer and loader called BeaverTail, which is then used to drop a Python backdoor referred to as InvisibleFerret that can establish persistence on Windows, Linux, and macOS hosts. Select infection chains have also been found to serve another malware codenamed OtterCookie via the same JavaScript payload used to launch BeaverTail.
+
+BlockNovas has been observed using video assessments to distribute FROSTYFERRET and GolangGhost using ClickFix-related lures, a tactic that was detailed earlier this month by Sekoia, which is tracking the activity under the name ClickFake Interview.
+
+BeaverTail is configured to contact an external server (""lianxinxiao[.]com"") for command-and-control (C2) to serve InvisibleFerret as the follow-up payload. It comes with various features to harvest system information, launch a reverse shell, download additional modules to steal browser data, files, and initiate the installation of the AnyDesk remote access software.
+
+
+Further analysis of the malicious infrastructure has revealed the presence of a ""Status Dashboard"" hosted on one of BlockNovas' subdomains to maintain visibility into four of their domains: lianxinxiao[.]com, angeloperonline[.]online, and softglide[.]co.
+
+A separate subdomain, mail.blocknovas[.]com domain, has also been found to be hosting an open-source, distributed password cracking management system called Hashtopolis. The fake recruitment drives have led to at least one developer getting their MetaMask wallet allegedly compromised in September 2024.
+
+That's not all. The threat actors also appear to be hosting a tool named Kryptoneer on the domain attisscmo[.]com that offers the ability to connect to cryptocurrency wallets such as Suiet Wallet, Ethos Wallet, and Sui Wallet.
+
+""It's possible that North Korean threat actors have made additional efforts to target the Sui blockchain, or this domain may be used within job application processes as an example of the 'crypto project' being worked on,"" Silent Push said.
+
+BlockNovas, according to an independent report published by Trend Micro, also advertised in December 2024 an open position for a senior software engineer on LinkedIn, specifically targeting Ukrainian IT professionals.
+
+
+As of April 23, 2025, the BlockNovas domain has been seized by the U.S. Federal Bureau of Investigation (FBI) as part of a law enforcement action against North Korean cyber actors for using it to ""deceive individuals with fake job postings and distribute malware.""
+
+Besides using services like Astrill VPN and residential proxies to obfuscate their infrastructure and activities, a noteworthy aspect of the malicious activity is the use of artificial intelligence (AI)-powered tools like Remaker to create profile pictures.
+
+The cybersecurity company, in its analysis of the Contagious Interview campaign, said it identified five Russian IP ranges that have been used to carry out the operation. These IP addresses are obscured by a VPN layer, a proxy layer, or an RDP layer.
+
+""The Russian IP address ranges, which are concealed by a large anonymization network that uses commercial VPN services, proxy servers, and numerous VPS servers with RDP, are assigned to two companies in Khasan and Khabarovsk,"" security researchers Feike Hacquebord and Stephen Hilt said.
+
+""Khasan is a mile from the North Korea-Russia border, and Khabarovsk is known for its economic and cultural ties with North Korea.""
+
+If Contagious Interview is one side of the coin, the other is the fraudulent IT worker threat known as Wagemole, which refers to a tactic that involves crafting fake personas using AI to get their IT workers hired remotely as employees at major companies.
+
+Cybersecurity
+These efforts have dual motivations, designed to steal sensitive data and pursue financial gain by funneling a chunk of the monthly salaries back to the Democratic People's Republic of Korea (DPRK).
+
+""Facilitators are now using GenAI-based tools to optimize every step in the process of applying and interviewing for roles and to aid DPRK nationals attempting to maintain this employment,"" Okta said.
+
+""These GenAI-enhanced services are required to manage the scheduling of job interviews with multiple DPRK candidate personas by a small cadre of facilitators. These services use GenAI in everything from tools that transcribe or summarize conversations, to real-time translation of voice and text.""
+
+Telemetry data gathered by Trend Micro points to the Pyongyang-aligned threat actors working from China, Russia, and Pakistan, while using the Russian IP ranges to connect to dozens of VPS servers over RDP and then perform tasks like interacting on job recruitment sites and accessing cryptocurrency-related services.
+
+""Given that a significant portion of the deeper layers of the North Korean actors' anonymization network is in Russia, it is plausible, with low to medium confidence, that some form of intentional cooperation or infrastructure sharing exists between North Korea and Russian entities,"" the company said.","['T1589','T1591','T1598','T1585','T1586','T1587','T1583','T1588','T1566.003','T1204','T1059']"
+"Threat actors are likely exploiting a new vulnerability in SAP NetWeaver to upload JSP web shells with the goal of facilitating unauthorized file uploads and code execution.
+
+""The exploitation is likely tied to either a previously disclosed vulnerability like CVE-2017-9844 or an unreported remote file inclusion (RFI) issue,"" ReliaQuest said in a report published this week.
+
+The cybersecurity said the possibility of a zero-day stems from the fact that several of the impacted systems were already running the latest patches.
+
+Cybersecurity
+The flaw is assessed to be rooted in the ""/developmentserver/metadatauploader"" endpoint in the NetWeaver environment, enabling unknown threat actors to upload malicious JSP-based web shells in the ""servlet_jsp/irj/root/"" path for persistent remote access and deliver additional payloads.
+
+Put differently, the lightweight JSP web shell is configured to upload unauthorized files, enable entrenched control over the infected hosts, execute remote code, and siphon sensitive data.
+
+Select incidents have been observed using the Brute Ratel C4 post-exploitation framework, as well as a well-known technique called Heaven's Gate to bypass endpoint protections.
+
+At least in one case, the threat actors took several days to progress from successful initial access to follow-on exploitation, raising the possibility that the attacker may be an initial access broker (IAB) that's obtaining and selling access to other threat groups on underground forums.
+
+
+""Our investigation revealed a troubling pattern, suggesting that adversaries are leveraging a known exploit and pairing it with a mix of evolving techniques to maximize their impact,"" ReliaQuest said.
+
+""SAP solutions are often used by government agencies and enterprises, making them high-value targets for attackers. As SAP solutions are often deployed on-premises, security measures for these systems are left to users; updates and patches that are not applied promptly are likely to expose these systems to greater risk of compromise.""
+
+Coincidentally, SAP has also released an update to address a maximum severity security flaw (CVE-2025-31324, CVSS score: 10.0) that an attacker could exploit to upload arbitrary files.
+
+Cybersecurity
+""SAP NetWeaver Visual Composer Metadata Uploader is not protected with a proper authorization, allowing an unauthenticated agent to upload potentially malicious executable binaries that could severely harm the host system,"" an advisory for the vulnerability reads.
+
+It's likely that CVE-2025-31324 refers to the same unreported security defect given that the former also affects the metadata uploader component.
+
+The disclosure comes a little over a month after the U.S. Cybersecurity and Infrastructure Security Agency (CISA) warned of active exploitation of another high-severity NetWeaver flaw (CVE-2017-12637) that could allow an attacker to obtain sensitive SAP configuration files.
+
+Update#
+ReliaQuest has confirmed to The Hacker News that the malicious activity detailed above is indeed leveraging a new security vulnerability that's now being tracked as CVE-2025-31324.
+
+""This vulnerability, which we identified during our investigation published on April 22, 2025, was initially suspected to be a remote file inclusion (RFI) issue,"" the company said. ""However, SAP later confirmed it as an unrestricted file upload vulnerability, allowing attackers to upload malicious files directly to the system without authorization.""
+
+In a separate report, SAP security firm Onapsis said the vulnerability is exploitable through HTTP/HTTPS, allowing attackers to send carefully crafted POST requests targeting the ""/developmentserver/metadatauploader"" endpoint without requiring any authentication.
+
+""Exploitation happens via a POST request to the vulnerable component,"" Onapsis CTO JP Perez-Etchegoyen said. ""Upon successful exploitation, threat actors are able to upload arbitrary files. Threat actors have been observed uploading web shells to vulnerable systems.""
+
+The web shells grant the threat actor the ability to execute arbitrary commands in system context, with the privileges of the <sid>adm Operating System user, giving them full access to all SAP resources. The attacks have not been attributed to a specific threat group.
+
+""With <sid>adm access, the attacker gains unauthorized access to the underlying SAP Operating System using the user and privileges of the processes running in the SAP Application Server, implying full access to any SAP resource, including the SAP system database without any restrictions, permitting them to take several actions,"" the company added.
+
+Users are advised to check for the presence of the following indicators of compromise (IoCs) to determine if they have been affected -
+
+C:\usr\sap\<SID>\<InstanceID>\j2ee\cluster\apps\sap.com\irj\servlet_jsp\irj\root
+C:\usr\sap\<SID>\<InstanceID>\j2ee\cluster\apps\sap.com\irj\servlet_jsp\irj\work
+C:\usr\sap\<SID>\<InstanceID>\j2ee\cluster\apps\sap.com\irj\servlet_jsp\irj\work\sync
+(The story was updated after publication to confirm the exploitation of a new zero-day flaw and additional details shared by Onapsis.)","['T1190','T1059.004','T1505.003','T1548','T1070','T1003','T1082','T1563','T1005','T1041','T1485']"
+"When we talk about identity in cybersecurity, most people think of usernames, passwords, and the occasional MFA prompt. But lurking beneath the surface is a growing threat that does not involve human credentials at all, as we witness the exponential growth of Non-Human Identities (NHIs).
+
+At the top of mind when NHIs are mentioned, most security teams immediately think of Service Accounts. But NHIs go far beyond that. You've got Service Principals, Snowflake Roles, IAM Roles, and platform-specific constructs from AWS, Azure, GCP, and more. The truth is, NHIs can vary just as widely as the services and environments in your modern tech stack, and managing them means understanding this diversity.
+
+The real danger lies in how these identities authenticate.
+
+Secrets: The Currency of Machines#
+Non-Human Identities, for the most part, authenticate using secrets: API keys, tokens, certificates, and other credentials that grant access to systems, data, and critical infrastructure. These secrets are what attackers want most. And shockingly, most companies have no idea how many secrets they have, where they're stored, or who is using them.
+
+The State of Secrets Sprawl 2025 revealed two jaw-dropping stats:
+
+23.7 million new secrets were leaked on public GitHub in 2024 alone
+And 70% of the secrets leaked in 2022 are still valid today
+Why is this happening?
+
+A part of the story is that there's no MFA for machines. No verification prompt. When a developer creates a token, they often grant it wider access than needed, just to make sure things work.
+
+Expiration dates? Optional. Some secrets are created with 50-year validity windows. Why? Because teams don't want the app to break next year. They choose speed over security.
+
+This creates a massive blast radius. If one of those secrets leaks, it can unlock everything from production databases to cloud resources, without triggering any alerts.
+
+Detecting compromised NHIs is much harder than with humans. A login from Tokyo at 2 am might raise red flags for a person, but machines talk to each other 24/7 from all over the world. Malicious activity blends right in.
+
+Many of these secrets act like invisible backdoors, enabling lateral movement, supply chain attacks, and undetected breaches. The Toyota incident is a perfect example — one leaked secret can take down a global system.
+
+This is why attackers love NHIs and their secrets. The permissions are too often high, the visibility is commonly low, and the consequences can be huge.
+
+The Rise of the Machines (and Their Secrets)#
+The shift to cloud-native, microservices-heavy environments has introduced thousands of NHIs per organization. NHIs now outnumber human identities from 50:1 to a 100:1 ratio, and this is only expected to increase. These digital workers connect services, automate tasks, and drive AI pipelines — and every single one of them needs secrets to function.
+
+But unlike human credentials:
+
+Secrets are hardcoded in codebases
+Shared across multiple tools and teams
+Lying dormant in legacy systems
+Passed to AI agents with minimal oversight
+They often lack expiration, ownership, and auditability.
+
+The result? Secrets sprawl. Overprivileged access. And one tiny leak away from a massive breach.
+
+Why the Old Playbook Doesn't Work Anymore#
+Legacy identity governance and PAM tools were built for human users, an era when everything was centrally managed. These tools still do a fine job enforcing password complexity, managing break-glass accounts, and governing access to internal apps. But NHIs break this model completely.
+
+Here's why:
+
+IAM and PAM are designed for human identities, often tied to individuals and protected with MFA. NHIs, on the other hand, are decentralized — created and managed by developers across teams, often outside of any central IT or security oversight. Many organizations today are running multiple vaults, with no unified inventory or policy enforcement.
+Secrets Managers help you store secrets — but they won't help you when secrets are leaked across your infrastructure, codebases, CI/CD pipelines, or even public platforms like GitHub or Postman. They're not designed to detect, remediate, or investigate exposure.
+CSPM tools focus on the cloud, but secrets are everywhere. They're in source control management systems, messaging platforms, developer laptops, and unmanaged scripts. When secrets leak, it's not just a hygiene issue — it's a security incident.
+NHIs don't follow traditional identity lifecycles. There's often no onboarding, no offboarding, no clear owner, and no expiration. They linger in your systems, under the radar, until something goes wrong.
+Security teams are left chasing shadows, manually trying to piece together where a secret came from, what it accesses, and whether it's even still in use. This reactive approach doesn't scale, and it leaves your organization dangerously exposed.
+
+This is where GitGuardian NHI Governance comes into play.
+
+GitGuardian NHI Governance: Mapping the Machine Identity Maze#
+GitGuardian has taken its deep expertise in secrets detection and remediation and turned it into something much more powerful: a complete governance layer for machine identities and their credentials.
+
+Here's what makes it stand out:
+
+A Map for the Mess#
+Think of it as an end-to-end visual graph of your entire secrets landscape. The map connects the dots between:
+
+Where secrets are stored (e.g., HashiCorp Vault, AWS Secrets Manager)
+Which services consume them
+What systems do they access
+Who owns them
+Whether they've been leaked internally or used in public code
+Full Lifecycle Control#
+NHI Governance goes beyond visibility. It enables true lifecycle management of secrets — tracking their creation, usage, rotation, and revocation.
+
+Security teams can:
+
+Set automated rotation policies
+Decommission unused/orphaned credentials
+Detect secrets that haven't been accessed in months (aka zombie credentials)
+Security and Compliance, Built In#
+The platform also includes a policy engine that helps teams enforce consistent controls across all vaults and benchmark themselves against standards like OWASP Top 10.
+
+You can track:
+
+Vault coverage across teams and environments
+Secrets hygiene metrics (age, usage, rotation frequency)
+Overprivileged NHIs
+Compliance posture drifts over time
+AI Agents: The New Wild West#
+A big driver of this risk is RAG (Retrieval-Augmented Generation), where AI answers questions using your internal data. It's useful, but if secrets are hiding in that data, they can be surfaced by mistake.
+
+AI agents are being plugged into everything — Slack, Jira, Confluence, internal docs — to unlock productivity. But with each new connection, the risk of secret sprawl grows.
+
+Secrets aren't just leaking from code anymore. They show up in docs, tickets, messages, and when AI agents access those systems, they can accidentally expose credentials in responses or logs.
+
+What can go wrong?#
+Secrets stored in Jira, Notion, Slack, etc, are getting leaked
+AI logs capturing sensitive inputs and outputs
+Devs and third-party vendors storing unsanitized logs
+Access control breakdowns across systems
+One of the most forward-looking aspects of the GitGuardian platform is that it can help fix AI-driven secret sprawl:
+
+Scans all connected sources — including messaging platforms, tickets, wikis, and internal apps — to detect secrets that might be exposed to AI
+Shows you where AI agents are accessing data, and flags unsafe paths that could lead to leaks
+Cleans up logs, removing secrets before they get stored or passed around in ways that put the organization at risk
+AI is moving fast. But secrets are leaking faster.
+
+The Bottom Line: You Can't Defend What You Don't Govern#
+With NHI Governance, GitGuardian is offering a blueprint for organizations to bring order to chaos and control to an identity layer that's long been left in the dark.
+
+Whether you're trying to:
+
+Map out your secrets ecosystem
+Minimize attack surface
+Enforce zero trust principles across machines
+Or just sleep better at night
+The GitGuardian platform might just be your new best friend.
+
+Because in a world where identities are the perimeter, ignoring non-human identities is no longer an option.
+
+Want to see NHI Governance in action?","['T1552.001','T1552.002','T1083','T1119','T1098','T1078','T1078.004','T1557','T1020','T1562.001','T1203']"
+"At least six organizations in South Korea have been targeted by the prolific North Korea-linked Lazarus Group as part of a campaign dubbed Operation SyncHole.
+
+The activity targeted South Korea's software, IT, financial, semiconductor manufacturing, and telecommunications industries, according to a report from Kaspersky published today. The earliest evidence of compromise was first detected in November 2024.
+
+The campaign involved a ""sophisticated combination of a watering hole strategy and vulnerability exploitation within South Korean software,"" security researchers Sojun Ryu and Vasily Berdnikov said. ""A one-day vulnerability in Innorix Agent was also used for lateral movement.""
+
+The attacks have been observed paving the way for variants of known Lazarus tools such as ThreatNeedle, AGAMEMNON, wAgent, SIGNBT, and COPPERHEDGE.
+
+Cybersecurity
+What makes these intrusions particularly effective is the likely exploitation of a security vulnerability in Cross EX, a legitimate software prevalent in South Korea to enable the use of security software in online banking and government websites to support anti-keylogging and certificate-based digital signatures.
+
+""The Lazarus group shows a strong grasp of these specifics and is using a South Korea-targeted strategy that combines vulnerabilities in such software with watering hole attacks,"" the Russian cybersecurity vendor said.
+
+The exploitation of a security flaw in Innorix Agent for lateral movement is notable for the fact that a similar approach has also been adopted by the Andariel sub-cluster of the Lazarus Group in the past to deliver malware such as Volgmer and Andardoor.
+
+The starting point of the latest wave of attacks was a watering hole attack, which activated the deployment of ThreatNeedle after targets visited various South Korean online media sites. Visitors who land on the sites are filtered using a server-side script prior to redirecting them to an adversary-controlled domain to serve the malware.
+
+""We assess with medium confidence that the redirected site may have executed a malicious script, targeting a potential flaw in Cross EX installed on the target PC, and launching malware,"" the researchers said. ""The script then ultimately executed the legitimate SyncHost.exe and injected a shellcode that loaded a variant of ThreatNeedle into that process.""
+
+
+The infection sequence has been observed adopting two phases, using ThreatNeedle and wAgent in the early stages and then SIGNBT and COPPERHEDGE for establishing persistence, conducting reconnaissance, and delivering credential dumping tools on the compromised hosts.
+
+Also deployed are malware families such as LPEClient for victim profiling and payload delivery, and a downloader dubbed AGAMEMNON for downloading and executing additional payloads received from the command-and-control (C2) server, while simultaneously incorporating the Hell's Gate technique to bypass security solutions during execution.
+
+Cybersecurity
+One payload downloaded by AGAMEMNON is a tool designed to carry out lateral movement by exploiting a security flaw in the Innorix Agent file transfer tool. Kaspersky said its investigation unearthed an additional arbitrary file download zero-day vulnerability in Innorix Agent that has since been patched by the developers.
+
+""The Lazarus group's specialized attacks targeting supply chains in South Korea are expected to continue in the future,"" Kaspersky said.
+
+""The attackers are also making efforts to minimize detection by developing new malware or enhancing existing malware. In particular, they introduce enhancements to the communication with the C2, command structure, and the way they send and receive data.""","['T1189','T1583.001','T1190','T1059.001','T1547.001','T1202','T1106','T1082','T1003.001','T1210','T1041']"
+"Cybersecurity researchers have demonstrated a proof-of-concept (PoC) rootkit dubbed Curing that leverages a Linux asynchronous I/O mechanism called io_uring to bypass traditional system call monitoring.
+
+This causes a ""major blind spot in Linux runtime security tools,"" ARMO said.
+
+""This mechanism allows a user application to perform various actions without using system calls,"" the company said in a report shared with The Hacker News. ""As a result, security tools relying on system call monitoring are blind' to rootkits working solely on io_uring.""
+
+Cybersecurity
+io_uring, first introduced in Linux kernel version 5.1 in March 2019, is a Linux kernel system call interface that employs two circular buffers called a submission queue (SQ) and a completion queue (CQ) between the kernel and an application (i.e., user space) to track the submission and completion of I/O requests in an asynchronous manner.
+
+The rootkit devised by ARMO facilitates communication between a command-and-control (C2) server and an infected host to fetch commands and execute them without making any system calls relevant to its operations, instead making use of io_uring to achieve the same goals.
+
+
+ARMO's analysis of currently available Linux runtime security tools has revealed that both Falco and Tetragon are blind to io_uring-based operations owing to the fact that they are heavily reliant on system call hooking.
+
+Cybersecurity
+The security risks posed by io_uring have been known for some time. In June 2023, Google revealed that it decided to limit the use of the Linux kernel interface across Android, ChromeOS, and its production servers as it ""provides strong exploitation primitives.""
+
+""On the one hand, you need visibility into system calls; on the other, you need access to kernel structures and sufficient context to detect threats effectively,"" Amit Schendel, Head of Security Research at ARMO, said.
+
+""Many vendors take the most straightforward path: hooking directly into system calls. While this approach offers quick visibility, it comes with limitations. Most notably, system calls aren't always guaranteed to be invoked. io_uring, which can bypass them entirely, is a positive and great example.""","['T1211','T1059.004','T1071.001','T1003','T1021']"
+"The threat actors behind the Darcula phishing-as-a-service (PhaaS) platform have released new updates to their cybercrime suite with generative artificial intelligence (GenAI) capabilities.
+
+""This addition lowers the technical barrier for creating phishing pages, enabling less tech-savvy criminals to deploy customized scams in minutes,"" Netcraft said in a fresh report shared with The Hacker News.
+
+""The new AI-assisted features amplify Darcula's threat potential by simplifying the process to build tailored phishing pages with multi-language support and form generation — all without any programming knowledge.""
+
+Cybersecurity
+Darcula was first documented by the cybersecurity company in March 2024 as a toolkit that leveraged Apple iMessage and RCS to send smishing messages to users that trick recipients into clicking on bogus links under the guise of postal services like USPS.
+
+Earlier this year, the operators of Darcula PhaaS began testing a major update that enabled customers to clone any brand's legitimate website and create a phishing version.
+
+
+The phishing kit, per PRODAFT, is the work of a threat actor codenamed LARVA-246, and is advertised for sale via a Telegram channel named xxhcvv / darcula_channel. It shares identical features and templates with another PhaaS referred to as Lucid.
+
+Darcula, Lucid, and Lighthouse are assessed to be part of a loosely connected cybercrime ecosystem flourishing out of China, enabling threat actors to pull off various financially motivated scams such as those perpetrated by an activity cluster dubbed Smishing Triad.
+
+""Darcula is one of several communities under the loosely affiliated Smishing Triad, known for mass-targeting individuals globally via SMS-based phishing (smishing) attacks,"" Netcraft said.
+
+What makes Darcula compelling is that it makes it possible for threat actors with little to no technical expertise to easily craft phishing pages and conduct campaigns at scale.
+
+Cybersecurity
+The latest improvement to the phishing kit, announced on April 23, 2025, takes the form of GenAI integration that facilitates phishing form generation in various languages, form field customisation, and translation of phishing forms into local languages.
+
+The cybersecurity company said it has taken down more than 25,000 Darcula pages, blocked nearly 31,000 IP addresses, and flagged over 90,000 phishing domains since March 2024.
+
+""This kind of flexibility means a novice attacker can now build and deploy a customized phishing site in minutes,"" security researcher Harry Everett said.","['T1566.001','T1078','T1119','T1071.001','T1027','T1499']"
+"Multiple threat activity clusters with ties to North Korea (aka Democratic People's Republic of Korea or DPRK) have been linked to attacks targeting organizations and individuals in the Web3 and cryptocurrency space.
+
+""The focus on Web3 and cryptocurrency appears to be primarily financially motivated due to the heavy sanctions that have been placed on North Korea,"" Google-owned Mandiant said in its M-Trends report for 2025 shared with The Hacker News.
+
+""These activities aim to generate financial gains, reportedly funding North Korea's weapons of mass destruction (WMD) program and other strategic assets.""
+
+The cybersecurity firm said DPRK-nexus threat actors have developed custom tools written in a variety of languages such as Golang, C++, and Rust, and are capable of infecting Windows, Linux, and macOS operating systems.
+
+At least three threat activity clusters it tracks as UNC1069, UNC4899, and UNC5342 have been found to target members of the cryptocurrency and blockchain-development community, particularly focusing on developers working on Web3-adjacent projects to obtain illicit access to cryptocurrency wallets and to the organizations that employ them.
+
+A brief description of each of the threat actors is below -
+
+UNC1069 (Active since at least April 2018), which targets diverse industries for financial gain using social engineering ploys by sending fake meeting invites and posing as investors from reputable companies on Telegram to gain access to victims' digital assets and cryptocurrency
+UNC4899 (Active since 2022), which is known for orchestrating job-themed campaigns that deliver malware as part of a supposed coding assignment and has previously staged supply chain compromises for financial gain (Overlaps with Jade Sleet, PUKCHONG, Slow Pisces, and TraderTraitor)
+UNC5342 (Active since at least December 2022), which is also known for employing job-related lures to trick developers into running malware-laced projects (Overlaps with Contagious Interview, DeceptiveDevelopment, DEV#POPPER, and Famous Chollima)
+Another North Korean threat actor of note is UNC4736, which has singled out the blockchain industry by trojanizing trading software applications and has been attributed to a cascading supply chain attack on 3CX in early 2023.
+
+Cybersecurity
+Mandiant said it also identified a separate cluster of North Korean activity tracked as UNC3782 that conducts large-scale phishing campaigns targeting the cryptocurrency sector.
+
+""In 2023, UNC3782 conducted phishing operations against TRON users and transferred more than $137 million USD worth of assets in a single day,"" the company noted. ""UNC3782 launched a campaign in 2024 to target Solana users and direct them to pages that contained cryptocurrency drainers.""
+
+Cryptocurrency theft is one of the several means the DPRK has pursued to sidestep international sanctions. At least since 2022, an active threat cluster dubbed UNC5267 has dispatched thousands of its citizens to secure remote employment jobs at companies in the U.S., Europe, and Asia while primarily residing in China and Russia.
+
+
+A major chunk of the IT workers are said to be affiliated with the 313 General Bureau of the Munitions Industry Department, which is responsible for the nuclear program in North Korea.
+
+The North Korean IT workers, in addition to making use of stolen identities, have utilized wholly fabricated personas to support their activities. This is also complemented by the use of real-time deepfake technology to create convincing synthetic identities during job interviews.
+
+""This offers two key operational advantages. First, it allows a single operator to interview for the same position multiple times using different synthetic personas,"" Palo Alto Networks Unit 42 researcher Evan Gordenker said.
+
+""Second, it helps operatives avoid being identified and added to security bulletins and wanted notices. Combined, it helps DPRK IT workers enjoy enhanced operational security and decreased detectability.""
+
+The DPRK IT worker scheme, which takes insider threats to a whole new level, is engineered to funnel back their salaries to Pyongyang to advance its strategic goals, maintain long-term access to victim networks, and even extort their employers.
+
+Cybersecurity
+""They have also intensified extortion campaigns against employers, and they've moved to conduct operations in corporate virtual desktops, networks, and servers,"" Google Threat Intelligence Group's (GTIG) Jamie Collier and Michael Barnhart said in a report last month.
+
+""They now use their privileged access to steal data and enable cyberattacks, in addition to generating revenue for North Korea.""
+
+In 2024, Mandiant said it identified a suspected DPRK IT worker using at least 12 personas while seeking employment in the U.S. and Europe, highlighting the effectiveness of turning to such unconventional methods to infiltrate organizations under false pretenses.
+
+""In at least one instance, two false identities were considered for a job in a U.S. company, with one DPRK IT worker winning out over the other,"" the threat intelligence firm pointed out. In another instance, ""four suspected DPRK IT workers had been employed within a 12-month period at a single organization.""","['T1566.002','T1189','T1078.004','T1078','T1548','T1036','T1555','T1083','T1570','T1567.002','T1071.001']"
+"The Iran-nexus threat actor known as UNC2428 has been observed delivering a backdoor known as MURKYTOUR as part of a job-themed social engineering campaign aimed at Israel in October 2024.
+
+Google-owned Mandiant described UNC2428 as a threat actor aligned with Iran that engages in cyber espionage-related operations. The intrusion set is said to have distributed the malware through a ""complex chain of deception techniques.""
+
+""UNC2428's social engineering campaign targeted individuals while posing as a recruitment opportunity from Israeli defense contractor, Rafael,"" the company said in its annual M-Trends report for 2025.
+
+Individuals who expressed interest were redirected to a site that impersonated Rafael, from where they were asked to download a tool to assist with applying for the job.
+
+The tool (""RafaelConnect.exe"") was an installer dubbed LONEFLEET that, once launched, presented a graphical user interface (GUI) to the victim in order to enter their personal information and submit their resume.
+
+Once submitted, the MURKYTOUR backdoor launched as a background process by means of a launcher referred to as LEAFPILE, granting the attackers persistent access to the compromised machine.
+
+""Iran-nexus threat actors incorporated graphical user interfaces (GUIs) to disguise malware execution and installation as legitimate applications or software,"" Mandiant said. ""The addition of a GUI that presents the user with a typical installer and is configured to mimic the form and function of the lure used can reduce suspicions from targeted individuals.""
+
+Cybersecurity
+It's worth mentioning that the campaign overlaps with activity that the Israel National Cyber Directorate attributed to an Iranian threat actor named Black Shadow.
+
+Assessed to be operating on behalf of the Iranian Ministry of Intelligence and Security (MOIS), the hacking group is known for targeting a wide range of industry verticals in Israel, including academia, tourism, communications, finance, transportation, healthcare, government, and technology.
+
+Per Mandiant, UNC2428 is one of the many Iranian threat activity clusters that have trained their sights on Israel in 2024. One prominent group is Cyber Toufan, which targeted Israel-based users with the proprietary POKYBLIGHT wiper.
+
+
+UNC3313 is another Iran-nexus threat group that has conducted surveillance and strategic information-gathering operations via spear-phishing campaigns. UNC3313, first documented by the company in February 2022, is believed to be affiliated with MuddyWater.
+
+""The threat actor hosted malware on popular file-sharing services and embedded links within training- and webinar-themed phishing lures,"" Mandiant said. ""In one such campaign, UNC3313 distributed the JELLYBEAN dropper and CANDYBOX backdoor to organizations and individuals targeted by their phishing operations.""
+
+Attacks mounted by UNC3313 have leaned heavily on as many as nine different legitimate remote monitoring and management (RMM) tools, a signature tactic of the MuddyWater group, in an attempt to ward off detection efforts and provide persistent remote access.
+
+The threat intelligence firm also said it observed in July 2024 a suspected Iran-linked adversary distributing a backdoor codenamed CACTUSPAL by passing it off as an installer for the Palo Alto Networks GlobalProtect remote access software.
+
+
+The installation wizard, upon launch, stealthily deploys the .NET backdoor that, in turn, verifies only one instance of the process is running before it communicates with an external command-and-control (C2) server.
+
+The use of RMM tools notwithstanding, Iranian threat actors like UNC1549 have also been observed taking steps to incorporate cloud infrastructure into their tradecraft so as to ensure that their actions blend in with services prevalent in enterprise environments.
+
+""In addition to techniques such as typosquatting and domain reuse, threat actors have found that hosting C2 nodes or payloads on cloud infrastructure and using cloud-native domains reduces the scrutiny that may be applied to their operations,"" Mandiant said.
+
+Cybersecurity
+Any insight into the Iranian threat landscape is incomplete without APT42 (aka Charming Kitten), which is known for its elaborate social engineering and rapport-building efforts to harvest credentials and deliver bespoke malware for data exfiltration.
+
+The threat actor, per Mandiant, deployed fake login pages masquerading as Google, Microsoft, and Yahoo! as part of their credential harvesting campaigns, using Google Sites and Dropbox to direct targets to fake Google Meet landing pages or login pages.
+
+In all, the cybersecurity company said it identified more than 20 proprietary malware families – including droppers, downloaders, and backdoors – used by Iranian actors in campaigns in the Middle East in 2024. Two of the identified backdoors, DODGYLAFFA and SPAREPRIZE, have been employed by APT34 (aka OilRig) in attacks targeting Iraqi government entities.
+
+""As Iran-nexus threat actors continue to pursue cyber operations that align with the interests of the Iranian regime, they will alter their methodologies to adapt to the current security landscape,"" Mandiant said.","['T1566.001','T1059.003','T1547.001','T1548.002','T1036.005','T1110.001','T1570','T1083','T1119','T1567.002','T1071.001']"
+"Cybersecurity researchers have revealed that Russian military personnel are the target of a new malicious campaign that distributes Android spyware under the guise of the Alpine Quest mapping software.
+
+""The attackers hide this trojan inside modified Alpine Quest mapping software and distribute it in various ways, including through one of the Russian Android app catalogs,"" Doctor Web said in an analysis.
+
+The trojan has been found embedded in older versions of the software and propagated as a freely available variant of Alpine Quest Pro, a paid offering that removes advertising and analytics features.
+
+The Russian cybersecurity vendor said it also observed the malware, dubbed Android.Spy.1292.origin, being distributed in the form of an APK file via a fake Telegram channel.
+
+Cybersecurity
+While the threat actors initially provided a link for downloading the app in one of the Russian app catalogs through the Telegram channel, the trojanized version was later distributed directly as an APK as an app update.
+
+What makes the attack campaign noteworthy is that it takes advantage of the fact that Alpine Quest is used by Russian military personnel in the Special Military Operation zone.
+
+Once installed on an Android device, the malware-laced app looks and functions just like the original, allowing it to stay undetected for extended periods of time, while collecting sensitive data -
+
+Mobile phone number and their accounts
+Contact lists
+Current date and geolocation
+Information about stored files, and
+App version
+Besides sending the victim's location every time it changes to a Telegram bot, the spyware supports the ability to download and run additional modules that allow it to exfiltrate files of interest, particularly those sent via Telegram and WhatsApp.
+
+Android Spyware
+""Android.Spy.1292.origin not only allows user locations to be monitored but also confidential files to be hijacked,"" Doctor Web said. ""In addition, its functionality can be expanded via the download of new modules, which allows it to then execute a wider spectrum of malicious tasks.""
+
+To mitigate the risk posed by such threats, it's advised to download Android apps only from trusted app marketplaces and avoid downloading ""free"" paid versions of software from dubious sources.
+
+Russian Organizations Targeted by New Windows Backdoor#
+The disclosure comes as Kaspersky revealed that various large organizations in Russia, spanning the government, finance, and industrial sectors, have been targeted by a sophisticated backdoor by masquerading it as an update for a secure networking software called ViPNet.
+
+Cybersecurity
+""The backdoor targets computers connected to ViPNet networks,"" the company said in a preliminary report. ""The backdoor was distributed inside LZH archives with a structure typical of updates for the software product in question.""
+
+Present within the archive is a malicious executable (""msinfo32.exe"") that acts as a loader for an encrypted payload also included in the file.
+
+""The loader processes the contents of the file to load the backdoor into memory,"" Kaspersky said. This backdoor is versatile: it can connect to a C2 server via TCP, allowing the attacker to steal files from infected computers and launch additional malicious components, among other things.""","['T1475','T1543.003','T1547','T1068','T1036.003','T1557.002','T1087.001','T1072','T1119','T1041','T1071.001']"
