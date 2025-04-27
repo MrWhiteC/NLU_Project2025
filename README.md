@@ -65,7 +65,7 @@ This research builds on several notable works in the field of cybersecurity thre
 5. Select the Best Model
 6. Utlized the QACG-BERT with previous trained model
 7. Pre-process the News or Articles
-8. Evaluation: A predifined groud truth will be used to evluate the classification results 
+8. Evaluation: A predifined groud truth will be used to evaluate the classification results 
 
 
 ![methodology_nlp drawio](https://github.com/user-attachments/assets/2903b294-0f0b-4437-87d3-c3e05f8c5549)
@@ -80,7 +80,7 @@ This section presents the results from experiments evaluating the performance of
 - **CTI-BERT**
 - **Secure-BERT**
 
-After that, the datasets will be modified to add the context inside which according to the QACGBERT model for evluating with groud truth.
+After that, the datasets will be modified to add the context inside which according to the QACGBERT model for evaluating with groud truth.
 
 ### Standard Classification Metrics
 
@@ -98,7 +98,7 @@ The table below summarizes the performance of the four models based on the metri
 
 ### Normalized Discounted Cumulative Gain (NDCG) Metric
 
-The groud truth will be evluated base on ChatGPT classification with 10 samples on news or articles.
+The groud truth will be evaluated base on ChatGPT classification with 10 samples on news or articles.
 
 
 | Metric                     | CTI-BERT | QACGBERT |
