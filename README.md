@@ -118,7 +118,7 @@ The groud truth will be evluated base on ChatGPT classification with 10 samples 
 <br>Model training could access through .ipynb which are:
 - NLP_project_BERT.ipynb
 - NLP_project_CTI-BERT.ipynb
-- NLP_Project_QACG_bert_cti_model.ipynb
+- NLP_project_QACG_bert_cti_modified.ipynb
 - NLP_project_SecureBERT.ipynb
 
 
