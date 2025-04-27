@@ -1,39 +1,44 @@
-# AI System For MITRE ATT&CK Threat Classification And Organizational Impact Analysis
+# AI System For MITRE ATT&CK Threat Classification
 
 ## Overview
 
-This project introduces an **AI-powered Natural Language Processing (NLP) system** that automates the **classification** of **cybersecurity news articles** into **MITRE ATT&CK techniques**. A fine-tuned **BERT-based model**, specifically **CTI-BERT**, is used for the classification task, providing better performance than baseline models and traditional rule-based methods. The system is designed to support cybersecurity teams by identifying relevant ATT&CK techniques, **reducing the time, effort, and inconsistency associated with manual threat analysis**.
-
+This project aims to develop an AI-powered system that leverages Natural Language Processing (NLP) to automatically classify cybersecurity news articles into MITRE ATT&CK techniques. The system utilizes a fine-tuned BERT model to automate the classification process, helping organizations analyze cybersecurity threats more effectively and reduce the manual effort involved in mapping security incidents to the MITRE ATT&CK framework.
 
 ## Key Features
 
-- **Automated Classification:** The BERT-based model automatically classifies cybersecurity news articles into relevant MITRE ATT&CK techniques, enhancing the efficiency of threat analysis.
+- **Automated Threat Classification:** The system automatically classifies cybersecurity news articles based on MITRE ATT&CK techniques.
 
-- **Fine-tuning for Cybersecurity:** The model is fine-tuned specifically on cybersecurity-specific dataset, ensuring high relevance and accuracy in threat classification.
+- **Fine-Tuned BERT Model:** The model is fine-tuned specifically for cybersecurity news, enabling it to handle complex attack descriptions and terminology.
 
-- **Improved Efficiency:** Reduces the time and effort spent on manual classification, helping security teams react faster to threats.
-
-- **Evaluation Against Baseline Models:** The system's performance will be assessed against traditional keyword-based and rule-based methods, ensuring that it offers significant improvements in both accuracy and relevance.
-
-- **Human Feedback Loop:** Feedback from cybersecurity experts will be integrated into the model evaluation, further enhancing its capabilities for practical, real-world applications.
-
+- **Web-Based Interface:** A user-friendly web interface to interact with the system, allowing security analysts to input cybersecurity news articles and receive classified MITRE ATT&CK techniques.
 
 ## Related Works
 
 This research builds on several notable works in the field of cybersecurity threat intelligence and natural language processing (NLP):
 
-**1. Noise Contrastive Estimation-based Matching Framework for Low-Resource Security Attack Pattern Recognition (Nguyen et al., 2024)** introduced a ranking-based Noise Contrastive Estimation (NCE) to address challenges in multi-label classification of Tactics, Techniques, and Procedures (TTPs). While successful, it faced issues with training time and the scope of the MITRE ATT&CK framework.
+**1. Pre-trained Models and Classification Frameworks**
 
-**2. Automatic Mapping of Unstructured Cyber Threat Intelligence (Orbinato et al., 2022)** explored machine learning and deep learning methods for classifying Cyber Threat Intelligence (CTI) into MITRE ATT&CK categories. Their work showed that deep learning outperformed traditional approaches, but the complexity of natural language made precise classification challenging.
+- **CTI-BERT (Park and You, 2023):** A pre-trained model for Cyber Threat Intelligence (CTI) that outperforms general models in MITRE ATT&CK classification but faces challenges like limited dataset size and language coverage.
 
-**3. A Pretrained Language Model for Cyber Threat Intelligence (Park & You, 2023)** developed a BERT-based model specifically for cybersecurity, showing it worked better than general models. However, the limited size of datasets made challenges for performance on unseen data.
+- **Full-Stack NLP Pipeline (Park and Lee, 2022):** Extracts threat intelligence from unstructured text but lacks direct integration with MITRE ATT&CK, making it less efficient for classification tasks.
 
-**4. AnnoCTR: A Dataset for Detecting and Linking Entities, Tactics, and Techniques in Cyber Threat Reports (Lange et al., 2024)** provided a detailed dataset for specific NLP tasks related to MITRE ATT&CK, which will be useful for this research in automating threat classification from cybersecurity news.
+**2. Handling Multi-Label Challenges**
 
-**5. Introducing a New Dataset for Event Detection in Cybersecurity Texts (Duc Trong et al., 2020)** focused on improving event detection models, highlighting the limitations of sentence-level context in capturing complex cybersecurity events. This work emphasizes the need for document-level context, which the proposed system aims to use.
+- **Noise Contrastive Estimation (NCE) (Nguyen et al., 2024):** A framework to handle multi-label challenges and missing annotations, showing better performance in MITRE ATT&CK classification.
 
-**6. Full-Stack Information Extraction System for Cybersecurity Intelligence (Park & Lee, 2022)** proposed a system to extract and organize cybersecurity information. However, it didn’t connect with standardized frameworks like MITRE ATT&CK, which led to disorganized data. This research aims to fix that by automating threat classification within the MITRE ATT&CK framework.
+- **Sentence-Level Classification (Orbinato et al., 2022):** Explores deep learning for classifying unstructured CTI, outperforming traditional approaches at the sentence level.
 
+**3. Cybersecurity Datasets and Entity Extraction** 
+
+- **AnnoCTR Dataset (Lange et al., 2024):** Provides annotated threat reports linked to MITRE ATT&CK, useful for training classification models.
+
+- **CySecED Dataset (Trong et al., 2020):** Expands on earlier datasets with broader event types but struggles with complex attack dependencies.
+
+- **Named Entity Recognition (NER):** Used to identify and classify entities like malware and attack techniques, improving threat classification accuracy.
+
+**4. Context-Aware Modeling**
+
+- **Context-Guided BERT (Wu and Ong, 2020):**  Uses a quasi-attention mechanism to enhance the model's understanding of relationships between parts of a sentence. This helps capture both positive and negative relationships, improving the mapping of attacks to MITRE ATT&CK techniques.
 
 ## Methodology
 
@@ -103,15 +108,59 @@ The groud truth will be evluated base on ChatGPT classification with 10 samples 
 
 ## Datasets
 
-**1. [tumeteor/Security-TTP-Mapping](https://huggingface.co/datasets/tumeteor/Security-TTP-Mapping):** A dataset mapping security text to Tactics, Techniques, and Procedures (TTPs) to help identify attack patterns.
+**[tumeteor/Security-TTP-Mapping](https://huggingface.co/datasets/tumeteor/Security-TTP-Mapping):** A dataset mapping security text to Tactics, Techniques, and Procedures (TTPs) to help identify attack patterns.
 
 
 ## Repository Description
-- This repository consist of model training, evaluation ,and website deployment. Here are some expliantion about each component:
-  - Model Training
-  - Evaluation
-  - Website Deployment
+- This repository consist of model training, evaluation ,and website deployment. Here are some explanation about each component:
 
+**1. Model Training**
+
+**2. Evaluation**
+
+**3. Website Deployment**  
+The web-based interface allows users to interact with the trained model. Security analysts can input unstructured cybersecurity news articles and receive classified MITRE ATT&CK techniques, demonstrating the system’s practical application.
+
+## Setup and Running the Application
+
+**1. Clone the repository:** 
+Clone the repository to your local machine.
+```bash
+git clone https://github.com/MrWhiteC/NLU_Project2025.git
+cd a2-language-model/app
+```
+
+**2. Install dependencies:** 
+Install the dependencies listed in `requirements.txt`.
+```bash
+pip install -r requirements.txt
+```
+
+**3. Running the Flask App:**
+To start the Flask web application, run the following command:
+```bash
+python app.py
+```
+This will start the app on `http://127.0.0.1:5000/`.
+
+## Features of the Web Application
+- **Text Classification**: Users can input a cybersecurity news article, and the model will classify it into relevant MITRE ATT&CK techniques based on its content.
+  
+- **Interactive Interface**: A simple text box is provided for entering the article text, with a 'Classify Article' button to trigger the classification process.
+
+- **Contextual Mapping**: The model analyzes the input text and maps it to specific MITRE ATT&CK techniques.
+  
+- **Real-Time Results**: The predicted MITRE ATT&CK techniques are displayed immediately below the input box, allowing users to view the classification results instantly.
+
+## Web Application Sample Screenshots
+
+**Screenshot 1: Homepage**
+
+![Homepage](images/homepage.png)
+
+**Screenshot 2: Text Classification Output**
+
+![Sample Prompt](images/sample-prompt.png)
 
 ## Limitations and Challenges
 - **Accuracy Issues: Low accuracy due to**:
