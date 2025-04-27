@@ -115,8 +115,16 @@ The groud truth will be evluated base on ChatGPT classification with 10 samples 
 - This repository consist of model training, evaluation ,and website deployment. Here are some explanation about each component:
 
 **1. Model Training**
+Model training could access through .ipynb which are:
+- NLP_project_BERT.ipynb
+- NLP_project_CTI-BERT.ipynb
+- NLP_Project_QACG_bert_cti_model.ipynb
+- NLP_project_SecureBERT.ipynb
+
 
 **2. Evaluation**
+For evluation, the comparion between 2 ipynb file are NLP_project_CTI-BERT.ipynb and evaluation_bert.ipynb. Both files will use the real_news_maps.csv as the groud truth for evluating the model.
+
 
 **3. Website Deployment**  
 The web-based interface allows users to interact with the trained model. Security analysts can input unstructured cybersecurity news articles and receive classified MITRE ATT&CK techniques, demonstrating the system’s practical application.
