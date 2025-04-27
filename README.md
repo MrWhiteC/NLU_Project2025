@@ -112,22 +112,22 @@ The groud truth will be evluated base on ChatGPT classification with 10 samples 
 
 
 ## Repository Description
-- This repository consist of model training, evaluation ,and website deployment. Here are some explanation about each component:
+- This repository consists of model training, evaluation ,and website deployment. Here are some explanation about each component:
 
 **1. Model Training**
 <br>Model training could access through .ipynb which are:
-- NLP_project_BERT.ipynb
-- NLP_project_CTI-BERT.ipynb
-- NLP_project_QACG_bert_cti_modified.ipynb
-- NLP_project_SecureBERT.ipynb
+- `NLP_project_BERT.ipynb`
+- `NLP_project_CTI-BERT.ipynb`
+- `NLP_project_QACG_bert_cti_modified.ipynb`
+- `NLP_project_SecureBERT.ipynb`
 
 
 **2. Evaluation**
-<br>For evluation, the comparion between 2 ipynb file are NLP_project_CTI-BERT.ipynb and evaluation_bert.ipynb. Both files will use the real_news_maps.csv as the groud truth for evluating the model.
+<br>For evaluation, the comparion between 2 ipynb files are `NLP_project_CTI-BERT.ipynb` and `evaluation_bert.ipynb`. Both files will use the `real_news_maps.csv` as the groud truth for evaluating the model.
 
 
-**3. Website Deployment**  
-The web-based interface allows users to interact with the trained model. Security analysts can input unstructured cybersecurity news articles and receive classified MITRE ATT&CK techniques, demonstrating the system’s practical application.
+**3. Website Deployment**
+<br>A web-based interface is developed using **Flask**, with the backend logic implemented in `app.py`. The frontend is designed using `index.html`, allowing security analysts to input cybersecurity news articles and receive classified MITRE ATT&CK techniques instantly.
 
 ## Setup and Running the Application
 
