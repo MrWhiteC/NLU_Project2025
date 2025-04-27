@@ -115,7 +115,7 @@ The groud truth will be evluated base on ChatGPT classification with 10 samples 
 - This repository consist of model training, evaluation ,and website deployment. Here are some explanation about each component:
 
 **1. Model Training**
-Model training could access through .ipynb which are:
+<br>Model training could access through .ipynb which are:
 - NLP_project_BERT.ipynb
 - NLP_project_CTI-BERT.ipynb
 - NLP_Project_QACG_bert_cti_model.ipynb
@@ -123,7 +123,7 @@ Model training could access through .ipynb which are:
 
 
 **2. Evaluation**
-For evluation, the comparion between 2 ipynb file are NLP_project_CTI-BERT.ipynb and evaluation_bert.ipynb. Both files will use the real_news_maps.csv as the groud truth for evluating the model.
+<br>For evluation, the comparion between 2 ipynb file are NLP_project_CTI-BERT.ipynb and evaluation_bert.ipynb. Both files will use the real_news_maps.csv as the groud truth for evluating the model.
 
 
 **3. Website Deployment**  
